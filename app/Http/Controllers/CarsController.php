@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Car;
 use Illuminate\Http\Request;
 
-class AdsController extends Controller
+class CarsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +14,7 @@ class AdsController extends Controller
      */
     public function index()
     {
-        return view('ads.index');
+        return view('cars.index');
     }
 
     /**
@@ -23,7 +24,8 @@ class AdsController extends Controller
      */
     public function create()
     {
-        //
+        $car = new Car();
+        return view('cars.create', compact('car'));
     }
 
     /**
@@ -40,10 +42,10 @@ class AdsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Car  $car
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Car $car)
     {
         //
     }
@@ -51,10 +53,10 @@ class AdsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Car  $car
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Car $car)
     {
         //
     }
@@ -63,10 +65,10 @@ class AdsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Car  $car
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Car $car)
     {
         //
     }
@@ -74,10 +76,10 @@ class AdsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Car  $car
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Car $car)
     {
         //
     }

@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AdsController;
+use App\Http\Controllers\CarsController;
 use App\Http\Controllers\PagesController;
 
 /*
@@ -24,13 +24,13 @@ Route::get('/', [PagesController::class, 'home']);
 //*********  GUEST ADS   ********/
 //*******************************/
 
-Route::resource('ads', AdsController::class)
-    ->only('index', 'show');
+Route::resource('cars', CarsController::class);
+    // ->only('index', 'show');
 
 //*******************************/
 //*********  ADMIN ADS   ********/
 //*******************************/
 
-Route::resource('ads', AdsController::class)
-    ->except('index', 'show')
-    ->middleware('auth', 'verified');
+// Route::resource('cars', CarsController::class)
+//     ->except('index', 'show')
+//     ->middleware('auth', 'verified');
