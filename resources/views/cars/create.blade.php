@@ -1,13 +1,11 @@
-@extends('layouts.guest')
+@extends('layouts.app')
 
 @section('title')
-    <h1 class="text-center">Nos voitures</h1>
-    <p class="text-center">Annonces de voitures</p>
+    <h1 class="text-center">Créer une annonce</h1>
 @endsection
 
 @section('main')
-    <h2>Créer une annonce</h2>
-    <div class="col-sm-4">
+    <div class="col-sm-10 mx-auto">
         @include('cars.form', ['action' => 'store', 'car' => $car])
     </div>
 @endsection

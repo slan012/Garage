@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Car;
 use Illuminate\Http\Request;
+use App\Http\Requests\CarRequest;
+use Illuminate\Contracts\Auth\Guard;
+use Illuminate\Support\Facades\Auth;
+
+use function PHPUnit\Framework\returnSelf;
 
 class CarsController extends Controller
 {
@@ -14,7 +19,8 @@ class CarsController extends Controller
      */
     public function index()
     {
-        return view('cars.index');
+        $cars = Car::select('id', 'brand', 'model', 'mileage', 'created_at', 'price')->paginate(10);
+        return view('cars.index', compact('cars'));
     }
 
     /**
@@ -34,9 +40,13 @@ class CarsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CarRequest $request, Guard $auth)
     {
-        //
+        $data = $request->all();
+        $data['user_id'] = $auth->user()->id;
+        $data['registration'] = strtoupper($data['registration']);
+        Car::create($data);
+        return redirect(route('cars.index'))->with('success', 'La voiture a bien été enregistrée');
     }
 
     /**
@@ -58,7 +68,8 @@ class CarsController extends Controller
      */
     public function edit(Car $car)
     {
-        //
+        $car = Car::findOrFail($car->id);
+        return view('cars.edit', compact('car'));
     }
 
     /**
@@ -68,9 +79,11 @@ class CarsController extends Controller
      * @param  \App\Models\Car  $car
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Car $car)
+    public function update(CarRequest $request, Car $car)
     {
-        //
+        $car = Car::findOrFail($car->id);
+        $car->update($request->all());
+        return redirect(route('cars.index'))->with('success', 'L\'annonce a bien été mise à jour.');
     }
 
     /**
@@ -81,6 +94,8 @@ class CarsController extends Controller
      */
     public function destroy(Car $car)
     {
-        //
+        $car = Car::findOrFail($car->id);
+        $car->delete();
+        return redirect()->back()->with('success', 'La voiture a bien été supprimée');
     }
 }

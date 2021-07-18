@@ -17,12 +17,15 @@ class CreateCarsTable extends Migration
             $table->id();
             $table->string('brand');
             $table->string('model');
+            $table->string('registration')->index();
             $table->year('year');
             $table->integer('mileage')->default(0);
             $table->string('color');
             $table->integer('power');
             $table->string('engine');
             $table->string('state');
+            $table->text('description');
+            $table->integer('price');
             $table->timestamps();
         });
     }
