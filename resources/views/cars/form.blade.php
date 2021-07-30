@@ -50,6 +50,11 @@
             ],
             null, ['class' => 'col-sm-8 form-control', 'required']) !!}
         </div>
+        <!-- Options -->
+        <div class="form-group row">
+            {!! Form::label('options_id[]', 'Options :', ['class' => 'col-sm-4 col-form-label']) !!}
+            {!! Form::select('options_id[]', $options, $car->options, ['class' => 'col-sm-8 form-control', 'required', 'multiple']) !!}
+        </div>
     </div>
     <div class="col-sm-5 ml-auto">
         <!-- Color -->
@@ -82,6 +87,7 @@
             {!! Form::label('registration', 'Immatriculation :', ['class' => 'col-sm-4 col-form-label']) !!}
             {!! Form::text('registration', null, ['class' => 'col-sm-8 form-control', 'maxlength' => '7']) !!}
         </div>
+        
     </div>
 </div>
 <div class="row">

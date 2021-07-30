@@ -1,5 +1,10 @@
-@extends('layouts.guest')
+@if (Auth::user())
+    <?php $layout = 'app'; ?>
+@else
+    <?php $layout = 'guest'; ?>
+@endif
 
+@extends('layouts.' . $layout . '')
 @section('title')
 <h1 class="text-center">Nos voitures</h1>
 @endsection

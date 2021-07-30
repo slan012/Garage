@@ -67,6 +67,14 @@
                             </table>
                         </div>
                     </div>
+                    <h3>Options</h3>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            @foreach ($car->options as $option)
+                                <span class="badge badge-success" style="font-size: 1.1em">{{$option['name']}}</span>
+                            @endforeach
+                        </div>
+                    </div>
                     <h3>Description</h3>
                     <div class="row">
                         <div class="col-sm-12">

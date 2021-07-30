@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Car;
+use App\Models\Option;
 use Illuminate\Http\Request;
 use App\Http\Requests\CarRequest;
 use Illuminate\Contracts\Auth\Guard;
-use Illuminate\Support\Facades\Auth;
 
+use Illuminate\Support\Facades\Auth;
 use function PHPUnit\Framework\returnSelf;
 
 class CarsController extends Controller
@@ -31,7 +32,8 @@ class CarsController extends Controller
     public function create()
     {
         $car = new Car();
-        return view('cars.create', compact('car'));
+        $options = Option::pluck('name', 'id');
+        return view('cars.create', compact('car', 'options'));
     }
 
     /**
@@ -42,10 +44,11 @@ class CarsController extends Controller
      */
     public function store(CarRequest $request, Guard $auth)
     {
-        $data = $request->all();
+        $data = $request->except('options_id');
         $data['user_id'] = $auth->user()->id;
         $data['registration'] = strtoupper($data['registration']);
-        Car::create($data);
+        $car = Car::create($data);
+        $car->options()->sync($request->get('options_id'));
         return redirect(route('cars.index'))->with('success', 'La voiture a bien été enregistrée');
     }
 
@@ -69,7 +72,8 @@ class CarsController extends Controller
     public function edit(Car $car)
     {
         $car = Car::findOrFail($car->id);
-        return view('cars.edit', compact('car'));
+        $options = Option::pluck('name', 'id');
+        return view('cars.edit', compact('car', 'options'));
     }
 
     /**
@@ -83,6 +87,7 @@ class CarsController extends Controller
     {
         $car = Car::findOrFail($car->id);
         $car->update($request->all());
+        $car->options()->sync($request->get('options_id'));
         return redirect(route('cars.index'))->with('success', 'L\'annonce a bien été mise à jour.');
     }
 

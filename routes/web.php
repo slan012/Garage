@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdsController;
 use App\Http\Controllers\CarsController;
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\OptionController;
+use App\Http\Controllers\OptionsController;
+use App\Http\Controllers\ScheduleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,9 +36,30 @@ Route::resource('cars', CarsController::class)
     ->middleware('auth');
 
 //*******************************/
-//*********      ADS     ********/
+//*********     ADS      ********/
 //*******************************/
 
-// Route::get('ads', [AdsController::class, 'index'])->name('ads.index');
-// Route::get('ads/{id}', [AdsController::class, 'show'])->name('ads.show');
 Route::resource('ads', AdsController::class)->only('index', 'show');
+
+//*******************************/
+//*********   OPTIONS    ********/
+//*******************************/
+
+Route::resource('options', OptionController::class)
+    ->middleware('auth');
+
+//*******************************/
+//*********   SCHEDULES  ********/
+//*******************************/
+
+Route::get('schedules', [ScheduleController::class, 'index'])
+    ->middleware('auth')
+    ->name('schedules.index');
+
+Route::get('schedules/edit', [ScheduleController::class, 'edit'])
+    ->middleware('auth')
+    ->name('schedules.edit');
+
+Route::post('schedules/store', [ScheduleController::class, 'store'])
+    ->middleware('auth')
+    ->name('schedules.store');

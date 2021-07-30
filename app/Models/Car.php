@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Option;
 use Intervention\Image\Facades\Image;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -25,7 +26,19 @@ class Car extends Model
         'user_id',
         'price',
         'description',
+        'options',
+        
     ];
+
+    /**
+     * Get all of the options for the Car
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function options()
+    {
+        return $this->belongsToMany(Option::class);
+    }
 
     public function getImageDir()
     {

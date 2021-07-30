@@ -3266,13 +3266,13 @@
  }
  .dropdown-item:focus,
  .dropdown-item:hover {
-   color: #141414;
+   color: #1f1f1f;
    text-decoration: none;
    background: #eee linear-gradient(180deg, #f1f1f1, #eee) repeat-x;
  }
  .dropdown-item.active,
  .dropdown-item:active {
-   color: #fff;
+   color: rgb(26, 26, 26);
    text-decoration: none;
    background: #2196f3 linear-gradient(180deg, #42a6f5, #2196f3) repeat-x;
  }

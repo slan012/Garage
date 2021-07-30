@@ -6,9 +6,18 @@
 
 @section('main')
     <div class="col-sm-10 mx-auto">
-        <p class="text-right">
-            <a class="btn btn-info" href="{{route('cars.create')}}">Ajouter une annonce</a>
-        </p>
+        <div class="row">
+            <div class="col-sm-6">
+                <p class="text-left">
+                    <a class="btn btn-primary" href="{{route('options.index')}}">Gérer les options des véhicules</a>
+                </p>
+            </div>
+            <div class="col-sm-6">
+                <p class="text-right">
+                    <a class="btn btn-info" href="{{route('cars.create')}}">Ajouter une annonce</a>
+                </p>
+            </div>
+        </div>
         @include('components.message')
         <table class="table">
             <thead>
