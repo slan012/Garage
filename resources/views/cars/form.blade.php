@@ -21,7 +21,7 @@
         <!-- Brand -->
         <div class="form-group row">
             {!! Form::label('brand', 'Marque :', ['class' => 'col-sm-4 col-form-label']) !!}
-            {!! Form::text('brand', null, ['class' => 'col-sm-8 form-control', 'required']) !!}
+            {!! Form::text('brand', null, ['class' => 'col-sm-8 form-control', 'required', 'autofocus']) !!}
         </div>
         <!-- Model -->
         <div class="form-group row">

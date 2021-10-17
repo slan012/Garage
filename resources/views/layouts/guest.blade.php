@@ -1,14 +1,13 @@
+<link href="{{ asset('css/guest.css') }}" rel="stylesheet" type="text/css" >
+
 @extends('layouts.main')
 
 @section('content')
-    @include('components.navbar')
-    <div class="row" style="margin-top: 10px">
-        <div class="col-sm-12">
-            @yield('title')
-        </div>
-        <div class="col-sm-12">
-            @yield('main')
-        </div>
-    </div>
+    <header>
+        @include('components.topbar-guest')
+    </header>
+    <body>
+        @yield('main')
+    </body>
 @endsection
 

@@ -19,41 +19,6 @@ class ScheduleController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        dd($request);
-        foreach ($request->except('_token') as $halfDay => $value) {
-            var_dump([$halfDay => $value['2']]);
-        };
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Schedule  $schedule
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Schedule $schedule)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Schedule  $schedule
@@ -72,19 +37,35 @@ class ScheduleController extends Controller
      * @param  \App\Models\Schedule  $schedule
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Schedule $schedule)
+    public function update(Request $request)
     {
-        //
+        $week = [];
+        $data = $request->except('_token');
+
+        foreach ($data as $event => $valuesArray) {
+            for ($day = 1; $day < 8; $day++) {
+                if (key_exists($day, $valuesArray)) {
+                    $week[$day][$event] = $valuesArray[$day];
+                }
+            }
+        };
+
+        foreach ($week as $day => $eventArray) {
+            if (!isset($eventArray['closedMorning'])) {
+                $eventArray['closedMorning'] = false;
+            } else {
+                $eventArray['closedMorning'] = true;
+            }
+
+            if (!isset($eventArray['closedAfternoon'])) {
+                $eventArray['closedAfternoon'] = false;
+            } else {
+                $eventArray['closedAfternoon'] = true;
+            }
+
+            Schedule::where('id', $day)->update($eventArray);
+        }
+        return redirect()->route('schedules.index')->with('success', 'Les horaires ont bien été mis à jour.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Schedule  $schedule
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Schedule $schedule)
-    {
-        //
-    }
 }

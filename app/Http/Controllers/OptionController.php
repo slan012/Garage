@@ -67,7 +67,8 @@ class OptionController extends Controller
      */
     public function edit(Option $option)
     {
-        //
+        $option = Option::find($option->id);
+        return view('options.edit', compact('option'));
     }
 
     /**
@@ -79,7 +80,9 @@ class OptionController extends Controller
      */
     public function update(Request $request, Option $option)
     {
-        //
+        $data = $request->only('name');
+        $option->update($data);
+        return redirect(route('options.index'))->with('success', 'L\'option a été mise à jour');
     }
 
     /**
@@ -90,6 +93,7 @@ class OptionController extends Controller
      */
     public function destroy(Option $option)
     {
-        //
+        $option->delete();
+        return redirect(route('options.index'))->with('success', 'L\'option a été supprimée');
     }
 }

@@ -13,7 +13,7 @@
                     <th>Jour</th>
                     <th colspan="2">Matin</th>
                     <th colspan="2">Après-midi</th>
-                    <th colspan="2">Fermé</th>
+                    <th colspan="2">Fermeture</th>
                 </tr>
                 <tr>
                     <td></td>
@@ -26,7 +26,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                    {!! Form::open(['route' => 'schedules.store', 'method' => 'post']) !!}
+                    {!! Form::open(['route' => 'schedules.update', 'method' => 'post']) !!}
                     @foreach ($schedules as $schedule)
                         <tr>
                             <td scope="row">{{$schedule->day}}</td>
@@ -46,14 +46,14 @@
                                 {!! Form::text('afternoonCloseH[' . $schedule->id .']', $schedule->afternoonCloseH, ['maxlength' => 2, 'style' => 'max-width: 50px']) !!}H
                                 {!! Form::text('afternoonCloseM[' . $schedule->id .']', $schedule->afternoonCloseM, ['maxlength' => 2, 'style' => 'max-width: 50px']) !!}
                             </td>
-                            <td>{!! Form::checkbox('closedMorning[' . $schedule->id .']', true, $schedule->closedMorning) !!}</td>
-                            <td>{!! Form::checkbox('closedAfternoon[' . $schedule->id .']', true, $schedule->closedAfternoon) !!}</td>
+                            <td>{!! Form::checkbox('closedMorning[' . $schedule->id .']', null, $schedule->closedMorning) !!}</td>
+                            <td>{!! Form::checkbox('closedAfternoon[' . $schedule->id .']', null, $schedule->closedAfternoon) !!}</td>
                         </tr>
                     @endforeach
-                    {!! Form::submit('Valider') !!}
-                    {!! Form::close() !!}
                 </tbody>
-        </table>
+            </table>
+            {!! Form::submit('Valider', ['class' => 'btn btn-primary'])!!}
+            {!! Form::close() !!}
     </div>
     
 </div>

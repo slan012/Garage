@@ -5,8 +5,13 @@
 @endsection
 
 @section('main')
+
 <div class="row">
     <div class="col-sm-8">
+        <p class="text-right">
+            <a class="btn btn-info" href="{{route('schedules.edit')}}">Modifier les horaires</a>
+        </p>
+        @include('components.message')
         <table class="text-center table table-striped table-bordered">
             <thead class="thead-inverse">
                 <tr>
@@ -19,17 +24,17 @@
                     @foreach ($schedules as $schedule)
                         <tr>
                             <td scope="row">{{$schedule->day}}</td>
-                            @if (!$schedule->closedMorning == 0)
+                            @if ($schedule->closedMorning == true)
                                 <td colspan="2">Fermé</td>
                             @else
-                                <td>{{$schedule->morningOpenH . 'H' . $schedule->morningOpenM}}</td>
-                                <td>{{$schedule->morningCloseH . 'H' . $schedule->morningCloseM}}</td>
+                                <td>{{$schedule->morningOpenH . 'H' . sprintf("%02d", $schedule->morningOpenM)}}</td> 
+                                <td>{{$schedule->morningCloseH . 'H' . sprintf("%02d", $schedule->morningCloseM)}}</td>
                             @endif
-                            @if (!$schedule->closedMorning == 0)
+                            @if ($schedule->closedAfternoon == true)
                                 <td colspan="2">Fermé</td>
                             @else
-                                <td>{{$schedule->afternoonOpenH . 'H' . $schedule->afternoonOpenM}}</td>
-                                <td>{{$schedule->afternoonCloseH . 'H' . $schedule->afternoonCloseM}}</td>
+                                <td>{{$schedule->afternoonOpenH . 'H' . sprintf("%02d\n", $schedule->afternoonOpenM)}}</td>
+                                <td>{{$schedule->afternoonCloseH . 'H' . sprintf("%02d\n", $schedule->afternoonCloseM)}}</td>
                             @endif
                         </tr>
                     @endforeach

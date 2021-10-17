@@ -53,17 +53,6 @@ class CarsController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Car  $car
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Car $car)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Car  $car

@@ -1,0 +1,11 @@
+@mixin short-line {
+    &::after {
+        content: '';
+        display: block;
+        width: 70px;
+        height: 3px;
+        background-color: $theme-color;
+        margin-top: 30px;
+        text-align: inherit;
+    }
+}

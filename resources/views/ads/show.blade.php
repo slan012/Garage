@@ -6,11 +6,7 @@
 
 @extends('layouts.' . $layout . '')
 
-
-@section('title')
 <h1 class="text-center">{{$car->brand}} {{$car->model}} de {{$car->year}}</h1>
-@endsection
-
 @section('main')
 <div class="container">
     <div class="row" style="margin-bottom: 30px">

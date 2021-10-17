@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Car;
+use App\Models\Holiday;
 use Illuminate\Http\Request;
 
 class PagesController extends Controller
@@ -13,7 +15,7 @@ class PagesController extends Controller
      */
     public function home()
     {
-        return view('home');
+        return view('guest.home');
     }
 
     /**
@@ -23,6 +25,8 @@ class PagesController extends Controller
      */
     public function dashboard()
     {
-        return view('users.dashboard');
+        $adsCount = Car::all()->count();
+        $holidayCount = Holiday::all()->count();
+        return view('users.dashboard', compact('adsCount', 'holidayCount'));
     }
 }

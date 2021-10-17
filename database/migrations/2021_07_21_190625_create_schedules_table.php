@@ -33,8 +33,8 @@ class CreateSchedulesTable extends Migration
         DB::table('schedules')->insert(
             [
                 'day' => 'Lundi',
-                'openMorning' => 0,
-                'openAfternoon' => 0,
+                'closedMorning' => 0,
+                'closedAfternoon' => 0,
                 'morningOpenH' => '00',
                 'morningOpenM' => '00',
                 'morningCloseH' => '00',
@@ -49,8 +49,8 @@ class CreateSchedulesTable extends Migration
         DB::table('schedules')->insert(
             [
                 'day' => 'Mardi',
-                'openMorning' => '00',
-                'openAfternoon' => '00',
+                'closedMorning' => 0,
+                'closedAfternoon' => 0,
                 'morningOpenH' => '00',
                 'morningOpenM' => '00',
                 'morningCloseH' => '00',
@@ -65,8 +65,8 @@ class CreateSchedulesTable extends Migration
         DB::table('schedules')->insert(
             [
                 'day' => 'Mercredi',
-                'openMorning' => '00',
-                'openAfternoon' => '00',
+                'closedMorning' => 0,
+                'closedAfternoon' => 0,
                 'morningOpenH' => '00',
                 'morningOpenM' => '00',
                 'morningCloseH' => '00',
@@ -81,8 +81,8 @@ class CreateSchedulesTable extends Migration
         DB::table('schedules')->insert(
             [
                 'day' => 'Jeudi',
-                'openMorning' => '00',
-                'openAfternoon' => '00',
+                'closedMorning' => 0,
+                'closedAfternoon' => 0,
                 'morningOpenH' => '00',
                 'morningOpenM' => '00',
                 'morningCloseH' => '00',
@@ -97,8 +97,8 @@ class CreateSchedulesTable extends Migration
         DB::table('schedules')->insert(
             [
                 'day' => 'Vendredi',
-                'openMorning' => '00',
-                'openAfternoon' => '00',
+                'closedMorning' => 0,
+                'closedAfternoon' => 0,
                 'morningOpenH' => '00',
                 'morningOpenM' => '00',
                 'morningCloseH' => '00',
@@ -113,8 +113,8 @@ class CreateSchedulesTable extends Migration
         DB::table('schedules')->insert(
             [
                 'day' => 'Samedi',
-                'openMorning' => '00',
-                'openAfternoon' => '00',
+                'closedMorning' => 0,
+                'closedAfternoon' => 0,
                 'morningOpenH' => '00',
                 'morningOpenM' => '00',
                 'morningCloseH' => '00',
@@ -129,8 +129,8 @@ class CreateSchedulesTable extends Migration
         DB::table('schedules')->insert(
             [
                 'day' => 'Dimanche',
-                'openMorning' => '00',
-                'openAfternoon' => '00',
+                'closedMorning' => 0,
+                'closedAfternoon' => 0,
                 'morningOpenH' => '00',
                 'morningOpenM' => '00',
                 'morningCloseH' => '00',

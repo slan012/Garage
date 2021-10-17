@@ -5,7 +5,9 @@ use App\Http\Controllers\AdsController;
 use App\Http\Controllers\CarsController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\OptionController;
+use App\Http\Controllers\HolidayController;
 use App\Http\Controllers\OptionsController;
+use App\Http\Controllers\ContactsController;
 use App\Http\Controllers\ScheduleController;
 
 /*
@@ -22,7 +24,8 @@ use App\Http\Controllers\ScheduleController;
 //*********     PAGES    ********/
 //*******************************/
 
-Route::get('/', [PagesController::class, 'home']);
+Route::get('/', [PagesController::class, 'home'])
+    ->name('home');
 
 Route::get('dashboard', [PagesController::class, 'dashboard'])
     ->middleware('auth')
@@ -60,6 +63,30 @@ Route::get('schedules/edit', [ScheduleController::class, 'edit'])
     ->middleware('auth')
     ->name('schedules.edit');
 
-Route::post('schedules/store', [ScheduleController::class, 'store'])
+Route::post('schedules/update', [ScheduleController::class, 'update'])
     ->middleware('auth')
-    ->name('schedules.store');
+    ->name('schedules.update');
+
+//*******************************/
+//*********   CONTACT    ********/
+//*******************************/
+
+Route::get('contact', [ContactsController::class, 'index'])
+    ->middleware('auth')
+    ->name('contact.index');
+
+Route::get('contact/edit', [ContactsController::class, 'edit'])
+    ->middleware('auth')
+    ->name('contact.edit');
+
+Route::post('contact/update', [ContactsController::class, 'update'])
+    ->middleware('auth')
+    ->name('contact.update');
+
+//*******************************/
+//*********   HOLIDAYS   ********/
+//*******************************/
+
+Route::resource('holidays', HolidayController::class)
+    ->except('show')
+    ->middleware('auth');

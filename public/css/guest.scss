@@ -1,0 +1,367 @@
+/* http://meyerweb.com/eric/tools/css/reset/ */
+/* v1.0 | 20080212 */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+
+/* remember to define focus styles! */
+:focus {
+	outline: 0;
+}
+
+/* remember to highlight inserts somehow! */
+ins {
+	text-decoration: none;
+}
+del {
+	text-decoration: line-through;
+}
+
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* FIN RESET */
+
+@import "libs/responsive.scss";
+@import "libs/mixins.scss";
+
+$theme-color: #00a3e0;
+$background-color : #222;
+$text-color: #FFF;
+
+html {
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    background-color: $background-color;
+    color: $text-color;
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: $background-color;
+    color: #FFF;
+    
+    .links {
+        ul {
+            display: none;
+        }
+    }
+}
+
+.btn-collapse {
+    display: block;
+    width: 40px;
+    height: 40px;
+    background-color: $background-color;
+    border: none;
+    border-radius: 5px;
+
+    span {
+        display: block;
+        width: 80%;
+        height: 2px;
+        background-color: #FFF;
+        margin: 7px auto;
+    }
+
+    &:hover {
+        background-color: lighten($color: #000000, $amount: 30);
+        cursor: pointer;
+    }
+}
+
+.logo {
+    
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    img {
+        display: block;
+        margin: auto;
+        width: 60px;
+        height: auto;
+        margin-bottom: 5px;
+    }
+
+    p {
+        font-family: 'Roboto Slab', serif;
+        font-weight: 700;
+        letter-spacing: 0.7px;
+    }
+}
+
+.container-banner {
+    padding: 0 15px;
+}
+
+.banner {
+    text-align: center;
+    padding: 30px 0;
+    color: #FFF;
+    background: linear-gradient(rgba(34, 34, 34, 1), rgba(34,34,34, 0.85),rgba(34, 34, 34, 1)),
+    url('../img/assets/jaguar_1920.jpg') center top / cover no-repeat;
+
+    h1 {
+        font-size: 1.2rem;
+        margin: 15px 0;
+    }
+    
+    img {
+        
+        width: 80%;
+        max-width: 600px;
+        object-fit: contain;
+        height: auto;
+    }
+    
+    p {
+        max-width: 800px;
+        font-size: 1.2rem;
+        font-weight: 400;
+        text-align: center;
+        line-height: 1.5rem;
+        margin: 20px auto;
+    }
+
+    a {
+        display: block;
+        max-width: 200px;
+        padding: 1.3rem;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 40px;
+        color: inherit;
+        text-decoration: none;
+        border: 1px solid $theme-color;
+        text-transform: uppercase;
+        transition: .2s;
+        background-color: rgba(34,34,34, 0.6);
+        
+        &:hover {
+            background-color: $theme-color;
+        }
+    }
+}
+
+.container-small {
+    max-width: 800px;
+    padding: 20px;
+    margin: auto;
+}
+
+.bloc {
+    letter-spacing: 1px;
+}
+
+.bloc-header {
+    font-family: 'Roboto Slab';
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin: 30px auto;
+    display: table;
+    
+    @include short-line;
+}
+
+.bloc-body {
+    p {
+        line-height: 1.4rem;
+        text-indent: 1.5rem;
+        margin: 10px 0;
+        text-align: justify;
+    }
+}
+
+.bloc-img {
+    width: 70%;
+    max-width: 300px;
+    display: block;
+    margin: auto;
+}
+
+.bloc-footer {
+    margin: 0 auto;
+}
+
+.bloc-list {
+
+    letter-spacing: 0.7px;
+    font-weight: 700;
+    max-width: 300px;
+    margin: 0 auto;
+
+    li {
+        display: flex;
+        align-items: center;
+        margin: 30px 0;
+    }
+
+    .icon {
+        width: 35px;
+        height: 35px;
+        color: $theme-color;
+        margin-right: 20px;
+    }
+}
+
+@media #{$medium-up} {
+    .topbar {
+        
+        .logo {
+            img {
+                width: 100px;
+            }
+            
+            p {
+                font-size: 1.3rem;
+            }
+        }
+    }
+    
+}
+
+@media #{$large-up} {
+    .topbar {
+        .links ul {
+            display: flex;
+            justify-content: space-between;
+    
+            a {
+                color: inherit;
+                text-decoration: none;
+                transition: .2s;
+                padding: 15px;
+                letter-spacing: 0.7px;
+    
+                &:hover {
+                    color: $theme-color;
+                }
+            }
+        }
+    }
+    
+    .btn-collapse {
+        display: none;
+    }
+
+    #link-appointment {
+        margin-left: 5px;
+        
+        a {
+            background-color: $theme-color;
+            border-radius: 5px;
+            color: #FFF;
+            
+            &:hover {
+                background-color: darken($theme-color, $amount: 10);
+            }
+        }
+
+    }
+
+    .container-small {
+        max-width: 1200px;
+    }
+    
+    .bloc {
+        display: flex;
+        margin-top: 100px;
+        align-items: center;
+        
+        .bloc-header {
+            margin-top: 0;
+            text-align: left;
+            font-size: 1.6rem;
+            display: block;
+    
+        }
+        
+        .bloc-body {
+            p {
+                line-height: 1.4rem;
+                text-align: left;
+            }
+
+            @include short-line;
+        }
+
+        .bloc-img {
+            max-width: unset;
+        }
+
+    }
+
+    .bloc-left {
+        .bloc-content {
+            margin-left: 50px;
+        }
+
+        .bloc-img {
+            width: 300px;
+        }
+    }
+    .bloc-right {
+
+        .bloc-content {
+            margin-right: 50px;
+            order: 1;
+        }
+
+        .bloc-img {
+            background: linear-gradient(rgba(0,0,0,.9), rgba(0,0,0,.7));
+            width: 500px;
+            order: 2;
+            opacity: .60;
+        }
+
+    }
+
+    .bloc-list {
+        margin: 0;
+    }
+}
+
+
+
+
+
+
+
