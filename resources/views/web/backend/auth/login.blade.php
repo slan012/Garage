@@ -1,4 +1,4 @@
-@extends('layouts.guest')
+@extends('layouts.app')
 
 @section('title')
     <h4>Connexion</h4>
@@ -21,5 +21,4 @@
         {!! Form::submit('Se connecter') !!}
         {!! Form::close() !!}
     </div>
-
 @endsection

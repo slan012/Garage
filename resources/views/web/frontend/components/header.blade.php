@@ -1,8 +1,8 @@
 <nav class="topbar">
     <div class="logo">
         <a href="{{route('home')}}">
-            <img src="{{asset('img/assets/logo-peugeot.png')}}" alt="">
-            <p>Garage Jeantet</p>
+            <img src="{{asset('img/assets/logo-peugeot.png')}}" alt="Logo Peugeot">
+            <p>Garage Jeantet <span>Sébazac-Concourès</span></p>
         </a>
     </div>
     <div class="links">
@@ -12,12 +12,12 @@
             <span></span>
         </button>
         <ul>
-            <li><a href="#">Notre histoire</a></li>
+            <li><a href="{{route('history')}}">Notre histoire</a></li>
             <li><a href="#">Nos services</a></li>
             <li><a href="#">Nos véhicules</a></li>
             <li><a href="#">Contact</a></li>
             <li><a href="#">Infos pratiques</a></li>
-            <li id="link-appointment"><a href="#">Prendre rendez-vous</a></a></li>
+            <li id="link-appointment"><a href="https://rendezvousenligne.peugeot.fr/rendez-vous-garage-peugeot/france/garage/0000021473">Prendre rendez-vous</a></li>
         </ul>
     </div>
 </nav>

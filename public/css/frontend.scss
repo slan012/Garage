@@ -60,12 +60,14 @@ table {
 $theme-color: #00a3e0;
 $background-color : #222;
 $text-color: #FFF;
+$font-title: 'Roboto Slab', serif;
 
 html {
     font-size: 16px;
     font-family: 'Roboto', sans-serif;
     background-color: $background-color;
     color: $text-color;
+    box-sizing: border-box;
 }
 
 .topbar {
@@ -106,6 +108,8 @@ html {
 }
 
 .logo {
+
+    text-align: center;
     
     a {
         text-decoration: none;
@@ -121,9 +125,16 @@ html {
     }
 
     p {
-        font-family: 'Roboto Slab', serif;
+        font-family: $font-title;
         font-weight: 700;
         letter-spacing: 0.7px;
+    }
+
+    span {
+        display: block;
+        font-size: 0.75rem;
+        margin-top: 3px;
+        font-weight: 300;
     }
 }
 
@@ -160,45 +171,57 @@ html {
         margin: 20px auto;
     }
 
-    a {
-        display: block;
-        max-width: 200px;
-        padding: 1.3rem;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 40px;
-        color: inherit;
-        text-decoration: none;
-        border: 1px solid $theme-color;
-        text-transform: uppercase;
-        transition: .2s;
-        background-color: rgba(34,34,34, 0.6);
-        
-        &:hover {
-            background-color: $theme-color;
-        }
-    }
+    
 }
 
-.container-small {
-    max-width: 800px;
-    padding: 20px;
-    margin: auto;
+.container-fullwidth {
+    width: 100%;
 }
 
 .bloc {
+    max-width: 800px;
+    padding: 20px;
+    margin: auto;
     letter-spacing: 1px;
+    margin-top: 100px;
+
+    &:first-child{
+        margin-top: 50px;
+    }
+
 }
 
+.btn {
+    display: block;
+    max-width: 200px;
+    padding: 1.3rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+    color: inherit;
+    text-decoration: none;
+    border: 1px solid $theme-color;
+    text-transform: uppercase;
+    transition: .2s;
+    background-color: rgba(34,34,34, 0.6);
+    text-align: center;
+    
+    &:hover {
+        background-color: $theme-color;
+    }
+}
+
+
 .bloc-header {
-    font-family: 'Roboto Slab';
+    font-family: $font-title;
     font-size: 1.5rem;
     font-weight: 700;
     text-align: center;
-    margin: 30px auto;
-    display: table;
+    margin: 20px auto;
     
-    @include short-line;
+    @media #{$large-down} {
+        @include short-line-center($size: 70px, $margin: 30px);
+     }
 }
 
 .bloc-body {
@@ -234,13 +257,160 @@ html {
         margin: 30px 0;
     }
 
+    li:last-child {
+        margin-bottom: 0;
+    }
+
     .icon {
         width: 35px;
         height: 35px;
         color: $theme-color;
         margin-right: 20px;
     }
+
+    
 }
+
+.line-before {
+    @include long-line-before;
+}
+
+.google-map-frame {
+    width: 100%;
+    height: 450px;
+}
+
+.container-services {
+    padding: 0 20px;
+    margin: auto;
+    max-width: 1400px;
+}
+
+.bloc-service:nth-child(-n+5) {
+    //select 5 first child
+    @media #{$medium-down} {
+        @include short-line-center($size: 70px, $margin: 30px);
+    }
+}
+
+.bloc-service-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 30px auto 0 auto;
+}
+
+.service-content {
+    text-align: center;
+}
+
+.service-body {
+    letter-spacing: 1.3px;
+    line-height: 1.2rem;
+    text-align: left;
+}
+
+.service-title {
+    font-family: $font-title;
+    font-size: 1.1rem;
+    margin: 20px 0;
+}
+
+.more {
+    @extend .btn;
+    margin-top: 20px;
+    text-align: center;
+    max-width: 150px;
+    
+}
+
+.container-footer {
+    padding: 0 20px;
+
+}
+
+.footer-bloc {
+    @media #{$large-down} {
+        @include short-line-center($size: 60%, $margin:40px);
+    }
+}
+
+.footer-logo {
+
+    img {
+        display: block;
+        width: 130px;
+        margin: 20px auto;
+    }
+}
+
+.footer-title {
+    text-align: center;
+    margin: 10px 0;
+    font-size: 1.4rem;
+    @media #{$large-down} {
+        @include short-line-center($size: 50px, $margin: 20px);
+    }
+}
+
+.footer-content {
+
+    font-size: 1.1rem;
+    text-align: center;
+
+    address, p{
+        display: block;
+        margin: 10px 0;
+        text-decoration: none;
+        font-style: normal;
+        line-height: 1.5rem;
+    }
+    span {
+        display: block;
+    }
+
+    a {
+        text-decoration: none;
+        color: #FFF;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+}
+
+.creation {
+    font-size: 0.9rem;
+    color: #999;
+    text-align: center;
+    padding: 10px 20px;
+       
+    a {
+        text-decoration: none;
+        color: #BBB;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.site-informations {
+    .footer-content a {
+        display: block;
+        padding: 5px 0;
+    }
+}
+
+.appointment {
+    margin-top: 30px;
+    .btn {
+        margin: 0 auto;
+    }
+}
+
+
 
 @media #{$medium-up} {
     .topbar {
@@ -253,13 +423,57 @@ html {
             p {
                 font-size: 1.3rem;
             }
+
+            span {
+                margin-top: 5px;
+                font-size: 0.98rem;
+            }
+        }
+    }
+
+    .container-services {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+    .bloc-service {
+        margin: 20px 15px;
+        width: 230px;
+        background-color: lighten($color: $background-color, $amount: 4);
+        padding: 20px;
+        
+        &:hover {
+            .bloc-service-img {
+                background-color: #222;
+                opacity: .6;
+            }
         }
     }
     
+    .bloc-service-img {
+        width: 100%;
+        margin-top: 0;
+        transition: opacity .2s ease-in-out;
+    }
+
+    .service-title {
+        text-align: left;
+        @include short-line-left($size: 30px, $margin: 20px)
+    }
+
+    .service-body {
+        text-align: left;
+    }
+
+    
+    
+
 }
 
 @media #{$large-up} {
     .topbar {
+        padding: 25px 45px;
         .links ul {
             display: flex;
             justify-content: space-between;
@@ -297,11 +511,8 @@ html {
 
     }
 
-    .container-small {
-        max-width: 1200px;
-    }
-    
     .bloc {
+        max-width: 1100px;
         display: flex;
         margin-top: 100px;
         align-items: center;
@@ -311,7 +522,8 @@ html {
             text-align: left;
             font-size: 1.6rem;
             display: block;
-    
+
+            @include short-line-left($size: 70px, $margin: 30px)
         }
         
         .bloc-body {
@@ -320,7 +532,7 @@ html {
                 text-align: left;
             }
 
-            @include short-line;
+            @include short-line-left($size: 70px, $margin: 30px);
         }
 
         .bloc-img {
@@ -346,10 +558,9 @@ html {
         }
 
         .bloc-img {
-            background: linear-gradient(rgba(0,0,0,.9), rgba(0,0,0,.7));
-            width: 500px;
+            width: 400px;
             order: 2;
-            opacity: .60;
+            opacity: .80;
         }
 
     }
@@ -357,6 +568,71 @@ html {
     .bloc-list {
         margin: 0;
     }
+
+    .hotrod{
+        background:  linear-gradient(rgba(34, 34, 34, 1), rgba(34,34,34, 0.90),rgba(34, 34, 34, 1)),
+                    url(../img/assets/hotrod_1920.jpg) center center / cover no-repeat;
+    }
+
+    .container-services {
+        margin: 0 auto;
+    }
+
+    .bloc-service {
+        width: 300px;
+    }
+
+    .container-footer {
+        display: flex;
+        padding: 30px 15px;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .footer-informations {
+        display: flex;
+        justify-content: flex-start;
+        margin-left: 100px;
+    }
+
+    .footer-bloc {
+        margin: 0 50px;
+        height: 300px;
+        position: relative;
+    }
+    
+    .footer-title {
+        text-align: left;
+        font-size: 1.2rem;
+
+        @include short-line-left($size: 60px, $margin: 15px);
+    }
+    
+    .footer-content {
+        text-align: left;
+        font-size: 1rem;
+    }
+
+    .footer-logo {
+        display: block;
+        margin: 0;
+
+        img {
+            width: 200px;
+            height: auto;
+        }
+    }
+
+    .address .btn, .schedules .btn {
+        display: block;
+        position: absolute;
+        bottom: 20px;
+        left: 0;
+    }
+
+
+    
+
 }
 
 

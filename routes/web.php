@@ -24,9 +24,15 @@ use App\Http\Controllers\ScheduleController;
 //*********     PAGES    ********/
 //*******************************/
 
+//Frontend
 Route::get('/', [PagesController::class, 'home'])
     ->name('home');
 
+Route::get('/history', [PagesController::class, 'history'])
+    ->name('history');
+
+
+//Backend
 Route::get('dashboard', [PagesController::class, 'dashboard'])
     ->middleware('auth')
     ->name('dashboard');

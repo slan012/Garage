@@ -40,7 +40,7 @@ class ContactsController extends Controller
     public function update(ContactRequest $request)
     {
         $data = $request->except('_token');
-        $contact = Contact::firstWhere('email', $data['email']);
+        $contact = Contact::first();
         if (is_null($contact)) {
             $contact = Contact::create($data);
         } else {

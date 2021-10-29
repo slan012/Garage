@@ -1,11 +1,56 @@
-@mixin short-line {
+@mixin short-line-center($size, $margin) {
     &::after {
         content: '';
         display: block;
-        width: 70px;
+        width: $size;
         height: 3px;
         background-color: $theme-color;
-        margin-top: 30px;
-        text-align: inherit;
+        margin: $margin auto;
     }
 }
+
+@mixin short-line-left($size, $margin) {
+    &::after {
+        content: '';
+        display: block;
+        width: $size;
+        height: 3px;
+        background-color: $theme-color;
+        margin: $margin auto $margin 0;
+    }
+}
+
+@mixin short-line-right($size, $margin) {
+    &::after {
+        content: '';
+        display: block;
+        width: $size;
+        height: 3px;
+        background-color: $theme-color;
+        margin: $margin 0 $margin auto;
+    }
+}
+
+@mixin long-line-before {
+    &::before {
+        content: '';
+        display: block;
+        width: 40%;
+        height: 3px;
+        background-color: $theme-color;
+        margin: 30px auto;
+    }
+}
+
+@mixin long-line-after {
+    &::after {
+        content: '';
+        display: block;
+        width: 40%;
+        height: 3px;
+        background-color: $theme-color;
+        margin: 30px auto;
+    }
+}
+
+
