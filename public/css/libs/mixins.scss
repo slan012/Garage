@@ -1,4 +1,4 @@
-@mixin short-line-center($size, $margin) {
+@mixin line-center($size, $margin) {
     &::after {
         content: '';
         display: block;
@@ -9,7 +9,7 @@
     }
 }
 
-@mixin short-line-left($size, $margin) {
+@mixin line-left($size, $margin) {
     &::after {
         content: '';
         display: block;
@@ -20,7 +20,7 @@
     }
 }
 
-@mixin short-line-right($size, $margin) {
+@mixin line-right($size, $margin) {
     &::after {
         content: '';
         display: block;
@@ -31,26 +31,14 @@
     }
 }
 
-@mixin long-line-before {
+@mixin line-before($size: 40%, $margin: 30px) {
     &::before {
         content: '';
         display: block;
-        width: 40%;
+        width: $size;
         height: 3px;
         background-color: $theme-color;
-        margin: 30px auto;
+        margin: $margin auto;
     }
 }
-
-@mixin long-line-after {
-    &::after {
-        content: '';
-        display: block;
-        width: 40%;
-        height: 3px;
-        background-color: $theme-color;
-        margin: 30px auto;
-    }
-}
-
 

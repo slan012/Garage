@@ -10,13 +10,13 @@ class AdsController extends Controller
     public function index()
     {
         $cars = Car::paginate(10);
-        return view('ads.index', compact('cars'));
+        return view('web.frontend.pages.ads.index', compact('cars'));
     }
 
     public function show($id)
     {
         $car = Car::findOrFail($id);
         $car->load('options');
-        return view('ads.show', compact('car'));
+        return view('web.frontend.pages.ads.show', compact('car'));
     }
 }

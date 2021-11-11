@@ -7,7 +7,6 @@ use App\Models\Option;
 use Illuminate\Http\Request;
 use App\Http\Requests\CarRequest;
 use Illuminate\Contracts\Auth\Guard;
-
 use Illuminate\Support\Facades\Auth;
 use function PHPUnit\Framework\returnSelf;
 
@@ -21,7 +20,7 @@ class CarsController extends Controller
     public function index()
     {
         $cars = Car::select('id', 'brand', 'model', 'mileage', 'created_at', 'price')->paginate(10);
-        return view('cars.index', compact('cars'));
+        return view('web.backend.sections.cars.index', compact('cars'));
     }
 
     /**
@@ -33,7 +32,7 @@ class CarsController extends Controller
     {
         $car = new Car();
         $options = Option::pluck('name', 'id');
-        return view('cars.create', compact('car', 'options'));
+        return view('web.backend.sections.cars.create', compact('car', 'options'));
     }
 
     /**
@@ -49,7 +48,7 @@ class CarsController extends Controller
         $data['registration'] = strtoupper($data['registration']);
         $car = Car::create($data);
         $car->options()->sync($request->get('options_id'));
-        return redirect(route('cars.index'))->with('success', 'La voiture a bien été enregistrée');
+        return redirect(route('admin.cars.index'))->with('success', 'La voiture a bien été enregistrée');
     }
 
     /**
@@ -62,7 +61,7 @@ class CarsController extends Controller
     {
         $car = Car::findOrFail($car->id);
         $options = Option::pluck('name', 'id');
-        return view('cars.edit', compact('car', 'options'));
+        return view('web.backend.sections.cars.edit', compact('car', 'options'));
     }
 
     /**
@@ -77,7 +76,7 @@ class CarsController extends Controller
         $car = Car::findOrFail($car->id);
         $car->update($request->all());
         $car->options()->sync($request->get('options_id'));
-        return redirect(route('cars.index'))->with('success', 'L\'annonce a bien été mise à jour.');
+        return redirect(route('admin.cars.index'))->with('success', 'L\'annonce a bien été mise à jour.');
     }
 
     /**

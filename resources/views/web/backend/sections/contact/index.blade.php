@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('web.backend.layouts.app')
 
 @section('title')
     <h1>Informations de contact</h1>

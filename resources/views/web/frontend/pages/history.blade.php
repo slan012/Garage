@@ -1,95 +1,103 @@
 @extends('web.frontend.layouts.layout')
 
-@section('title', 'Histoire - Garage Jeantet')
+@section('title', 'Notre histoire')
 
 @section('main')
+
+<h1 class="title-page">Notre histoire</h1>
+<div class="img-fullwidth">
+    <picture>
+        <source media="(max-width: 640px)" srcset="{{asset('img/assets/garage2_small.jpg')}}">
+        <source media="(min-width: 641px)" srcset="{{asset('img/assets/garage2.jpg')}}">
+        <img src="" alt="{{asset('img/assets/garage1.jpg')}}"" alt="La devanture du garage Jeantet, une 208 électrique est garée devant l'entrée.">
+    </picture>
+</div>
+<article class="container-fullwidth">
+    <div class="bloc bloc-left">
+        {{-- <img class="bloc-img" src="{{asset('../img/assets/atelier1_square.jpg')}}" alt="">  --}}
+        <div class="bloc-content">
+            <h2 class="bloc-header">1963</h2>
+            <div class="bloc-body">
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Sint nam animi aut dignissimos dolores nisi modi ratione 
+                    aliquam consequuntur, architecto laudantium repellat suscipit
+                    veniam nemo, ipsum, laboriosam quia reiciendis sequi!
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Sint nam animi aut dignissimos dolores nisi modi ratione 
+                    aliquam consequuntur, architecto laudantium repellat suscipit
+                    veniam nemo, ipsum, laboriosam quia reiciendis sequi!
+                </p>
+            </div>
+        </div>
+    </div>
+</article>
+<article  class="container-fullwith hotrod">
 <div class="bloc bloc-left">
-    <img class="bloc-img" src="{{asset('../img/assets/old-logo-peugeot_500w.png')}}" alt=""> 
+    {{-- <img class="bloc-img" src="{{asset('../img/assets/mechanic_600.png')}}" alt="">  --}}
     <div class="bloc-content">
-        <h2 class="bloc-header">Les automobiles Peugeot</h2>
+        <h2 class="bloc-header">1972</h2>
         <div class="bloc-body">
             <p>
-                Au <strong>garage Jeantet</strong>, nous sommes agréés et spécialisés 
-                dans la <strong>réparation</strong>, l'<strong>entretien</strong>
-                    et le <strong>diagnostic</strong> des
-                véhicules de la marque <strong>Peugeot</strong>.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Sint nam animi aut dignissimos dolores nisi modi ratione 
+                aliquam consequuntur, architecto laudantium repellat suscipit
+                veniam nemo, ipsum, laboriosam quia reiciendis sequi!
             </p>
             <p>
-                Nos techniciens sont formés tout au long de l'année 
-                aux <strong>dernières technologies</strong> et <strong>innovations</strong> de la marque au Lion.
-                Ils sont également habilités et formés à la réparation des 
-                véhicules <strong>électriques</strong> et <strong>hybrides</strong>. 
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Sint nam animi aut dignissimos dolores nisi modi ratione 
+                aliquam consequuntur, architecto laudantium repellat suscipit
+                veniam nemo, ipsum, laboriosam quia reiciendis sequi!
             </p>
-        </div>
-        <div class="bloc-footer">
-            <ul class="bloc-list">
-                <li>
-                    <svg class="icon">
-                        <use xlink:href="{{asset('../img/icons/sprite.svg#oil')}}"></use>
-                    </svg>
-                    <p>Révision contructeur</p>
-                </li>
-                <li>
-                    <svg class="icon">
-                        <use xlink:href="{{asset('../img/icons/sprite.svg#wrench')}}"></use>
-                    </svg>
-                    <p>Pièces d'origine Peugeot</p>
-                </li>
-                <li>
-                    <svg class="icon">
-                        <use xlink:href="{{asset('../img/icons/sprite.svg#diag')}}"></use>
-                    </svg>
-                    <p>Diagnostic de pannes</p>
-                </li>
-                <li>
-                    <svg class="icon">
-                        <use xlink:href="{{asset('../img/icons/sprite.svg#electric')}}"></use>
-                    </svg>
-                    <p>Véhicules hybrides/électriques</p>
-                </li>
-            </ul>
         </div>
     </div>
 </div>
-</section>
-<section class="container-fullwith hotrod">
-<div class="bloc bloc-right">
-    <img class="bloc-img" src="{{asset('../img/assets/mechanic_600.png')}}" alt=""> 
-    <div class="bloc-content">
-        <h2 class="bloc-header">Réparations toutes marques</h2>
-        <div class="bloc-body">
-            <p>
-                Nous réalisons également l'entretien et la réparation des véhicules 
-                <strong>toutes marques</strong> dans le respect des <strong>préconisations constructeurs</strong>.
-            </p>
-            <p>
-                Le garage Jeantet est équipé d"une <strong>valise multimarques</strong> permettant le <strong>diagnostic
-                    électronique</strong> des véhicules toutes marques.
-            </p>
-        </div>
-        <div class="bloc-footer">
-            <ul class="bloc-list">
-                <li>
-                    <svg class="icon">
-                        <use xlink:href="{{asset('../img/icons/sprite.svg#oil')}}"></use>
-                    </svg>
-                    <p>Entretien multimarques</p>
-                </li>
-                <li>
-                    <svg class="icon">
-                        <use xlink:href="{{asset('../img/icons/sprite.svg#damper')}}"></use>
-                    </svg>
-                    <p>Réparation multimarques</p>
-                </li>
-                <li>
-                    <svg class="icon">
-                        <use xlink:href="{{asset('../img/icons/sprite.svg#engine')}}"></use>
-                    </svg>
-                    <p>Diagnostic électronique</p>
-                </li>
-            </ul>
+</article>
+<article class="container-fullwidth">
+    <div class="bloc bloc-left">
+        {{-- <img class="bloc-img" src="{{asset('../img/assets/atelier1_square.jpg')}}" alt="">  --}}
+        <div class="bloc-content">
+            <h2 class="bloc-header">1985</h2>
+            <div class="bloc-body">
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Sint nam animi aut dignissimos dolores nisi modi ratione 
+                    aliquam consequuntur, architecto laudantium repellat suscipit
+                    veniam nemo, ipsum, laboriosam quia reiciendis sequi!
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Sint nam animi aut dignissimos dolores nisi modi ratione 
+                    aliquam consequuntur, architecto laudantium repellat suscipit
+                    veniam nemo, ipsum, laboriosam quia reiciendis sequi!
+                </p>
+            </div>
         </div>
     </div>
-</div>
-</section>
+</article>
+<article  class="container-fullwith hotrod">
+    <div class="bloc bloc-left">
+        {{-- <img class="bloc-img" src="{{asset('../img/assets/mechanic_600.png')}}" alt="">  --}}
+        <div class="bloc-content">
+            <h2 class="bloc-header">2012</h2>
+            <div class="bloc-body">
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Sint nam animi aut dignissimos dolores nisi modi ratione 
+                    aliquam consequuntur, architecto laudantium repellat suscipit
+                    veniam nemo, ipsum, laboriosam quia reiciendis sequi!
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Sint nam animi aut dignissimos dolores nisi modi ratione 
+                    aliquam consequuntur, architecto laudantium repellat suscipit
+                    veniam nemo, ipsum, laboriosam quia reiciendis sequi!
+                </p>
+            </div>
+        </div>
+    </div>
+</article>
 @endsection

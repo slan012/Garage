@@ -6,7 +6,7 @@
     <div class="col-sm-5 mr-auto">
         {!! Form::model($car, [
             'route' => [
-                'cars.' . $action . '', 
+                'admin.cars.' . $action . '', 
                 $car->id,
             ],
             'method' => $action == 'store' ? 'post' : 'put',

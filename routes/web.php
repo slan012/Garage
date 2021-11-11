@@ -2,11 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdsController;
+use App\Http\Controllers\AskMessageController;
 use App\Http\Controllers\CarsController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\OptionController;
 use App\Http\Controllers\HolidayController;
-use App\Http\Controllers\OptionsController;
 use App\Http\Controllers\ContactsController;
 use App\Http\Controllers\ScheduleController;
 
@@ -23,76 +23,78 @@ use App\Http\Controllers\ScheduleController;
 //*******************************/
 //*********     PAGES    ********/
 //*******************************/
+/**
+ * * Get footer informations in all frontend pages in Views/Components/Footer 
+ */
 
 //Frontend
-Route::get('/', [PagesController::class, 'home'])
-    ->name('home');
+Route::get('/', function () {
+    return view('web.frontend.pages.home');
+})->name('home');
 
-Route::get('/history', [PagesController::class, 'history'])
-    ->name('history');
+Route::get('/history', function () {
+    return view('web.frontend.pages.history');
+})->name('history');
 
+Route::get('/services', function () {
+    return view('web.frontend.pages.services');
+})->name('services');
 
-//Backend
-Route::get('dashboard', [PagesController::class, 'dashboard'])
-    ->middleware('auth')
-    ->name('dashboard');
+Route::get('/contact', function () {
+    return view('web.frontend.pages.contact');
+})->name('contact');
 
-//*******************************/
-//*********  CARS        ********/
-//*******************************/
+Route::get('/infos', function () {
+    return view('web.frontend.pages.infos');
+})->name('infos');
 
-Route::resource('cars', CarsController::class)
-    ->middleware('auth');
+Route::get('/ads', [AdsController::class, 'index'])->name('ads');
+Route::get('/ads/{id}', [AdsController::class, 'show'])->name('ads.show');
 
-//*******************************/
-//*********     ADS      ********/
-//*******************************/
+Route::post('askmessage/store', [AskMessageController::class, 'store'])->name('askmessage.store');
 
-Route::resource('ads', AdsController::class)->only('index', 'show');
-
-//*******************************/
-//*********   OPTIONS    ********/
-//*******************************/
-
-Route::resource('options', OptionController::class)
-    ->middleware('auth');
 
 //*******************************/
-//*********   SCHEDULES  ********/
+//*********     ADMIN    ********/
 //*******************************/
 
-Route::get('schedules', [ScheduleController::class, 'index'])
-    ->middleware('auth')
-    ->name('schedules.index');
+Route::prefix('admin')->group(function () {
 
-Route::get('schedules/edit', [ScheduleController::class, 'edit'])
-    ->middleware('auth')
-    ->name('schedules.edit');
+    Route::middleware('auth')->group(function () {
 
-Route::post('schedules/update', [ScheduleController::class, 'update'])
-    ->middleware('auth')
-    ->name('schedules.update');
+        Route::name('admin.')->group(function () {
+            //Dashboard
+            Route::get('dashboard', [PagesController::class, 'dashboard'])
+            ->name('dashboard');
 
-//*******************************/
-//*********   CONTACT    ********/
-//*******************************/
+            // Cars
+            Route::resource('cars', CarsController::class);
 
-Route::get('contact', [ContactsController::class, 'index'])
-    ->middleware('auth')
-    ->name('contact.index');
+            // Ads
+            Route::resource('ads', AdsController::class)->only('index', 'show');
 
-Route::get('contact/edit', [ContactsController::class, 'edit'])
-    ->middleware('auth')
-    ->name('contact.edit');
+            // Options
+            Route::resource('options', OptionController::class);
 
-Route::post('contact/update', [ContactsController::class, 'update'])
-    ->middleware('auth')
-    ->name('contact.update');
+            // Schedules setup
+            Route::get('schedules', [ScheduleController::class, 'index'])
+            ->name('schedules.index');
+            Route::get('schedules/edit', [ScheduleController::class, 'edit'])
+            ->name('schedules.edit');
+            Route::post('schedules/update', [ScheduleController::class, 'update'])
+            ->name('schedules.update');
 
-//*******************************/
-//*********   HOLIDAYS   ********/
-//*******************************/
+            // Contact infos setup
+            Route::get('contact', [ContactsController::class, 'index'])
+            ->name('contact.index');
+            Route::get('contact/edit', [ContactsController::class, 'edit'])
+            ->name('contact.edit');
+            Route::post('contact/update', [ContactsController::class, 'update'])
+            ->name('contact.update');
 
-Route::resource('holidays', HolidayController::class)
-    ->except('show')
-    ->middleware('auth');
+            // Holidays setup
+            Route::resource('holidays', HolidayController::class)
+            ->except('show');
+        });
+    });
+});

@@ -16,26 +16,6 @@ class PagesController extends Controller
     */
     
     /**
-     * Display the guest homepage
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function home()
-    {
-        return view('web.frontend.pages.home');
-    }
-
-    /**
-     * Display the history page
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function history()
-    {
-        return view('web.frontend.pages.history');
-    }
-    
-    /**
      * Display the admin dashboard
      *
      * @return \Illuminate\Http\Response

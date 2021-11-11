@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('web.backend.layouts.app')
 
 @section('title')
     <h1>Modifier les coordonées</h1>

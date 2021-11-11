@@ -1,19 +1,27 @@
 @extends('web.frontend.layouts.layout')
 
-@section('title', 'Garage Jeantet')
+@section('title', 'Accueil')
 
 @section('main')
+
     <div class="banner">
         <img src="{{asset('img/assets/img_banner3.png')}}" alt="">
         <div class="container-banner">
             <p>Situé à Sébazac Concourès près de Rodez en Aveyron, le garage Jeantet, 
                 réparateur agréé Peugeot, entretient et répare les véhicules automobiles toutes marques depuis 1963.</p>
-            <a class="btn" href="#">Prendre rendez-vous</a>
+            <a class="btn" href="https://rendezvousenligne.peugeot.fr/rendez-vous-garage-peugeot/france/garage/0000021473">Prendre rendez-vous</a>
         </div>
+    </div>
+    <div class="img-fullwidth">
+        <picture>
+            <source media="(max-width: 640px)" srcset="{{asset('img/assets/garage1_small.jpg')}}">
+            <source media="(min-width: 641px)" srcset="{{asset('img/assets/garage1.jpg')}}">
+            <img src="" alt="{{asset('img/assets/garage1.jpg')}}"" alt="La devanture du garage Jeantet, une 208 électrique est garée devant l'entrée.">
+        </picture>
     </div>
     <section class="container-fullwidth">
         <div class="bloc bloc-left">
-            <img class="bloc-img" src="{{asset('../img/assets/old-logo-peugeot_500w.png')}}" alt=""> 
+            <img class="bloc-img" src="{{asset('../img/assets/logo_v2_600.png')}}" alt=""> 
             <div class="bloc-content">
                 <h2 class="bloc-header">Les automobiles Peugeot</h2>
                 <div class="bloc-body">

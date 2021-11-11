@@ -1,8 +1,6 @@
-@extends('layouts.guest')
+@extends('web.backend.layouts.app')
 
-@section('title')
-    <h4>S'enregistrer</h4>
-@endsection
+@section('title', 'S\'enregistrer')
 
 @section('main')
     @include('components.message')

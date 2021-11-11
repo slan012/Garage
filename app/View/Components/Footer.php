@@ -89,7 +89,8 @@ class Footer extends Component
             'week_schedule' => $week_schedule,
             'saturday_schedule' => $saturday_schedule,
             'sunday_schedule' => $sunday_schedule,
-            'contact_information' => $contact_information];
+            'contact_information' => $contact_information
+        ];
     }
 
     /**
@@ -99,6 +100,6 @@ class Footer extends Component
      */
     public function render()
     {
-        return view('web.frontend.components.footer', $this->footerInformations());
+        return view('components.footer', $this->footerInformations());
     }
 }

@@ -1,15 +1,9 @@
-@if (Auth::user())
-    <?php $layout = 'app'; ?>
-@else
-    <?php $layout = 'guest'; ?>
-@endif
+@extends('web.backend.layouts.app')
 
-@extends('layouts.' . $layout . '')
-@section('title')
-<h1 class="text-center">Nos voitures</h1>
-@endsection
+@section('title', 'Garage Jeantet - Véhicules')
 
 @section('main')
+<h1 class="text-center">Nos voitures</h1>
     <div class="row">
         @foreach ($cars as $car)
             <div class="col-sm-3">

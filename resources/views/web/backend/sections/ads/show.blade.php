@@ -1,13 +1,7 @@
-@if (Auth::user())
-    <?php $layout = 'app'; ?>
-@else
-    <?php $layout = 'guest'; ?>
-@endif
+@extends('web.backend.layouts.app')
 
-@extends('layouts.' . $layout . '')
-
-<h1 class="text-center">{{$car->brand}} {{$car->model}} de {{$car->year}}</h1>
 @section('main')
+<h1 class="text-center">{{$car->brand}} {{$car->model}} de {{$car->year}}</h1>
 <div class="container">
     <div class="row" style="margin-bottom: 30px">
         <div class="col-md-8">

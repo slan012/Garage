@@ -62,11 +62,14 @@ $background-color : #222;
 $text-color: #FFF;
 $font-title: 'Roboto Slab', serif;
 
-html {
+html, body {
     font-size: 16px;
     font-family: 'Roboto', sans-serif;
     background-color: $background-color;
     color: $text-color;
+}
+
+html, body, input, textarea {
     box-sizing: border-box;
 }
 
@@ -107,6 +110,13 @@ html {
     }
 }
 
+// ! *********************
+// ! Developpement ONLY !! 
+.navbar-collapse {
+    display: none;
+}
+// ! ********************
+
 .logo {
 
     text-align: center;
@@ -140,6 +150,15 @@ html {
 
 .container-banner {
     padding: 0 15px;
+}
+
+.title-page {
+    display: block;
+    text-align: center;
+    font-family: $font-title;
+    font-size: 1.5rem;
+    margin: 20px auto;
+    
 }
 
 .banner {
@@ -178,6 +197,22 @@ html {
     width: 100%;
 }
 
+.container-small {
+    max-width: 1400px;
+    margin: 0 auto 50px auto;
+    padding: 0 15px;
+
+    @include line-center($size: 60%, $margin: 40px);
+}
+
+.img-fullwidth {
+    margin: 20px 0;
+    
+    img {
+        width: 100%;
+    }
+}
+
 .bloc {
     max-width: 800px;
     padding: 20px;
@@ -186,7 +221,7 @@ html {
     margin-top: 100px;
 
     &:first-child{
-        margin-top: 50px;
+        margin-top: 20px;
     }
 
 }
@@ -220,7 +255,7 @@ html {
     margin: 20px auto;
     
     @media #{$large-down} {
-        @include short-line-center($size: 70px, $margin: 30px);
+        @include line-center($size: 70px, $margin: 30px);
      }
 }
 
@@ -267,12 +302,10 @@ html {
         color: $theme-color;
         margin-right: 20px;
     }
-
-    
 }
 
 .line-before {
-    @include long-line-before;
+    @include line-before($size: 40%, $margin: 20px);
 }
 
 .google-map-frame {
@@ -289,7 +322,7 @@ html {
 .bloc-service:nth-child(-n+5) {
     //select 5 first child
     @media #{$medium-down} {
-        @include short-line-center($size: 70px, $margin: 30px);
+        @include  line-center($size: 70px, $margin: 30px);
     }
 }
 
@@ -331,7 +364,7 @@ html {
 
 .footer-bloc {
     @media #{$large-down} {
-        @include short-line-center($size: 60%, $margin:40px);
+        @include line-center($size: 60%, $margin:40px);
     }
 }
 
@@ -349,7 +382,7 @@ html {
     margin: 10px 0;
     font-size: 1.4rem;
     @media #{$large-down} {
-        @include short-line-center($size: 50px, $margin: 20px);
+        @include line-center($size: 50px, $margin: 20px);
     }
 }
 
@@ -410,6 +443,256 @@ html {
     }
 }
 
+.car-image-zoom {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-height: 250px;
+}
+
+.car-thumb-img {
+    width: 100%;
+    object-fit: cover;
+    transition: all .3s ease;
+}
+
+.car-bloc {
+
+    margin: 30px 0;
+
+    .img-more {
+        display: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+    
+    &:hover {
+        
+        .img-more{
+            display: block;
+            font-size: 1.3rem;
+            padding: 15px 25px;
+            border: #FFF solid 1px;
+
+            &:hover {
+                background-color: $theme-color;
+                border-color: $theme-color;
+            }
+        }
+
+        .car-thumb-img {
+            transform: scale(1.2);
+            max-width: inherit;
+            overflow: hidden;
+            opacity: .5;
+        }
+
+        .car-thumb-price {
+            background-color: darken($color: $theme-color, $amount: 10);
+            
+            &::before {
+                border-right: darken($theme-color, 10) solid 20px;
+            }
+        }
+    }
+}
+
+.car-thumb-body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+
+}
+
+.car-thumb-price {
+    font-size: 1.2rem;
+    font-weight: 700;
+    background-color: $theme-color;
+    height: 30px;
+    padding-right: 10px;
+    padding-top: 2px;
+    text-decoration: none;
+    color: inherit;
+    
+    &::before {
+        content: '';
+        display: inline-block;
+        border-top: $background-color solid 32px;
+        border-right: $theme-color solid 20px;
+        vertical-align: middle;
+        margin-right: 10px;
+        margin-top: -2px;
+    }
+}
+
+.car-price {
+    max-width: 300px;
+    margin: 20px auto;
+    font-size: 1.5rem;
+    font-weight: 700;
+    background-color: $theme-color;
+    // height: 50px;
+    padding-right: 10px;
+    padding-top: 2px;
+
+    &::before {
+        content: '';
+        display: inline-block;
+        border-top: $background-color solid 52px;
+        border-right: $theme-color solid 20px;
+        vertical-align: middle;
+        margin-right: 40px;
+        margin-top: -2px;
+    }
+
+}
+
+.car-thumb-title {
+    font-size: 1.1rem;
+}
+
+.car-thumb-link {
+    text-decoration: none;
+    color: inherit;
+    
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.car-thumb-footer {
+    font-size: 0.9rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    &::before {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 1px;
+        background-color: #555;
+        flex: none;
+        margin-bottom: 5px;
+    }
+
+    li {
+        display: flex;
+        align-items: center;
+    }
+    
+    .car-icon {
+        width: 20px;
+        height: 20px;
+        margin-right: 5px;
+        color: $theme-color;
+    }
+}
+
+.car-show-img {
+    width: 100%;
+    max-height: 250px;
+    object-fit: cover;
+    margin: 10px 0;
+}
+
+.car-infos-table {
+    width: 100%;
+    margin: 10px 0;
+    
+    tr {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid #888;
+    }
+    
+    th, td {
+        padding: 12px 0;
+        
+    }
+
+}
+
+.car-show {
+    article {
+        margin: 20px 0;
+        
+    }
+}
+
+.car-show-bloc {
+   margin: 20px 0;
+}
+
+.car-show-title {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-family: $font-title;
+    font-size: 1.1rem;
+
+    &::before, &::after {
+        content: " - ";
+    }
+}
+
+.car-option {
+    display: flex;
+    align-items: center;
+    padding: 5px 0;
+}
+
+.car-option-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+}
+
+.form-group {
+    margin: 20px 0;
+}
+.form-label {
+    width: 120px;
+    display: block;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.form-input {
+    height: 30px;
+    border: none;
+    width: 100%;
+    background-color: #DDD;
+    border: 1px solid transparent;
+    transition: all .2s;
+    
+    &:focus {
+        background-color: #FFF;
+        border: $theme-color 2px solid;
+        
+        // box-shadow: #777 0 0 10px;
+    }
+}
+
+.textarea {
+    height: 100px;
+}
+
+.btn-form {
+    max-width: unset;
+    width: 100%;
+    margin: 0;
+}
+
 
 
 @media #{$medium-up} {
@@ -459,12 +742,25 @@ html {
 
     .service-title {
         text-align: left;
-        @include short-line-left($size: 30px, $margin: 20px)
+        @include line-left($size: 30px, $margin: 20px)
     }
 
     .service-body {
         text-align: left;
     }
+
+    .ads {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 40px;
+    }
+
+    .car-bloc {
+        min-width: 300px;
+        flex-grow: 1;
+    }
+
 
     
     
@@ -523,7 +819,7 @@ html {
             font-size: 1.6rem;
             display: block;
 
-            @include short-line-left($size: 70px, $margin: 30px)
+            @include line-left($size: 70px, $margin: 30px)
         }
         
         .bloc-body {
@@ -532,7 +828,7 @@ html {
                 text-align: left;
             }
 
-            @include short-line-left($size: 70px, $margin: 30px);
+            @include line-left($size: 70px, $margin: 30px);
         }
 
         .bloc-img {
@@ -605,7 +901,7 @@ html {
         text-align: left;
         font-size: 1.2rem;
 
-        @include short-line-left($size: 60px, $margin: 15px);
+        @include line-left($size: 60px, $margin: 15px);
     }
     
     .footer-content {

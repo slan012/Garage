@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('web.backend.layouts.app')
 
 @section('title')
     <h1 class="text-center">Ajouter une option</h1>

@@ -15,7 +15,7 @@ class ScheduleController extends Controller
     public function index()
     {
         $schedules = Schedule::all();
-        return view('schedules.index', compact('schedules'));
+        return view('web.backend.sections.schedules.index', compact('schedules'));
     }
 
     /**
@@ -27,7 +27,7 @@ class ScheduleController extends Controller
     public function edit(Schedule $schedule)
     {
         $schedules = Schedule::all();
-        return view('schedules.edit', compact('schedules'));
+        return view('web.backend.sections.schedules.edit', compact('schedules'));
     }
 
     /**
@@ -65,7 +65,7 @@ class ScheduleController extends Controller
 
             Schedule::where('id', $day)->update($eventArray);
         }
-        return redirect()->route('schedules.index')->with('success', 'Les horaires ont bien été mis à jour.');
+        return redirect()->route('web.backend.sections.schedules.index')->with('success', 'Les horaires ont bien été mis à jour.');
     }
 
 }

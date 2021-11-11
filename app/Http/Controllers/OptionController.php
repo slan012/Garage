@@ -1,4 +1,4 @@
-<?php
+admin.<?php
 
 namespace App\Http\Controllers;
 
@@ -16,7 +16,7 @@ class OptionController extends Controller
     {
         $options = Option::all();
         $option = new Option();
-        return view('options.index', ['options' => $options, 'option' => $option]);
+        return view('web.backend.sections.options.index', ['options' => $options, 'option' => $option]);
     }
 
     /**
@@ -27,7 +27,7 @@ class OptionController extends Controller
     public function create()
     {
         $option = new Option();
-        return view('options.create', ['option' => $option]);
+        return view('web.backend.sections.options.create', ['option' => $option]);
     }
 
     /**
@@ -45,7 +45,7 @@ class OptionController extends Controller
         );
         $data = $request->only('name');
         Option::create($data);
-        return redirect(route('options.index'))->with('success', 'L\'option a bien été ajoutée');
+        return redirect(route('web.backend.sections.options.index'))->with('success', 'L\'option a bien été ajoutée');
     }
 
     /**
@@ -68,7 +68,7 @@ class OptionController extends Controller
     public function edit(Option $option)
     {
         $option = Option::find($option->id);
-        return view('options.edit', compact('option'));
+        return view('web.backend.sections.options.edit', compact('option'));
     }
 
     /**
@@ -82,7 +82,7 @@ class OptionController extends Controller
     {
         $data = $request->only('name');
         $option->update($data);
-        return redirect(route('options.index'))->with('success', 'L\'option a été mise à jour');
+        return redirect(route('web.backend.sections.options.index'))->with('success', 'L\'option a été mise à jour');
     }
 
     /**
@@ -94,6 +94,6 @@ class OptionController extends Controller
     public function destroy(Option $option)
     {
         $option->delete();
-        return redirect(route('options.index'))->with('success', 'L\'option a été supprimée');
+        return redirect(route('web.backend.sections.options.index'))->with('success', 'L\'option a été supprimée');
     }
 }

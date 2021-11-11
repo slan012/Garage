@@ -1,8 +1,6 @@
-@extends('layouts.app')
+@extends('web.backend.layouts.app')
 
-@section('title')
-    <h4>Connexion</h4>
-@endsection
+@section('title', 'Connexion')
 
 @section('main')
     @include('components.message')
