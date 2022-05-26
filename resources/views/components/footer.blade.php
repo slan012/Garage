@@ -1,3 +1,4 @@
+
 <div class="container-footer">
     <div class="footer-logo">
         <img src="{{asset('img/assets/logo-peugeot.png')}}" alt="Logo Peugeot">

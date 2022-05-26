@@ -17,7 +17,7 @@ class ContactsController extends Controller
     public function index()
     {
         $contact = Contact::firstOrNew();
-        return view('admin.contact.index', compact('contact'));
+        return view('web.backend.sections.contact.index', compact('contact'));
     }
 
     /**
@@ -46,6 +46,6 @@ class ContactsController extends Controller
         } else {
             $contact->update($data);
         }
-        return redirect(route('web.backend.sections.contact.index'))->with('success', 'Les coordonnées ont bien été mises à jour');
+        return redirect(route('admin.contact.index'))->with('success', 'Les coordonnées ont bien été mises à jour');
     }
 }

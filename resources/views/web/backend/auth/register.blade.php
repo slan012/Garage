@@ -23,7 +23,7 @@
         </div>
         <!-- Password confirmation -->
         <div class="form-group row">
-            {!! Form::label('password_confirmation', 'Mot de passe :', ['class' => 'col-sm-4 col-form-label']) !!}
+            {!! Form::label('password_confirmation', 'Confirmation mot de passe :', ['class' => 'col-sm-4 col-form-label']) !!}
             {!! Form::password('password_confirmation', null, ['class' => 'col-sm-8 form-control required']) !!}
         </div>
         {!! Form::submit('Se connecter') !!}

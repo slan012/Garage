@@ -8,7 +8,7 @@
 <div class="row">
     <div class="col-sm-8">
         <p class="text-right">
-            <a class="btn btn-info" href="{{route('contact.edit', $contact)}}">Modifier les coordonnées</a>
+            <a class="btn btn-info" href="{{route('admin.contact.edit', $contact)}}">Modifier les coordonnées</a>
         </p>
         @include('components.message')
         <table class="text-center table table-striped table-bordered">

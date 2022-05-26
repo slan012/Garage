@@ -6,7 +6,7 @@
 
 @section('main')
     @include('components.message')
-    {!! Form::model($contact, ['route' => 'contact.update']) !!}
+    {!! Form::model($contact, ['route' => 'admin.contact.update']) !!}
         <div class="form-group row">
             {!! Form::label('name', 'Nom :', ['class' => 'col-sm-2 col-form-label']) !!}
             {!! Form::text('name', null, ['class' => 'col-sm-6 form-control', 'required']) !!}
