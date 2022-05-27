@@ -1,8 +1,6 @@
 @extends('web.backend.layouts.app')
 
-@section('title')
-<h1 class="text-center">Mes annonces</h1>
-@endsection
+@section('title', 'Annonces')
 
 @section('main')
     <div class="col-sm-10 mx-auto">

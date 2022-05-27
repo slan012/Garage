@@ -135,7 +135,7 @@
                     <div class="service-content">
                         <h3 class="service-title">Pneumatiques</h3>
                         <p  class="service-body">Nous proposons un grand choix de pneumatiques adaptés à votre profil de conduite.
-                            Pneus été, hiver ou 4 saisons au choix parmi plusieurs marques disponibles.
+                            Pneus été, hiver ou 4 saisons au choix parmi plusieurs marques.
                         </p>
                     </div>
                 </article>

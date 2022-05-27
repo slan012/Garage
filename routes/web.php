@@ -95,6 +95,10 @@ Route::prefix('admin')->group(function () {
             // Holidays setup
             Route::resource('holidays', HolidayController::class)
             ->except('show');
+
+            //Override logout POST method of Fortify
+            Route::get('/adminlogout', 'Laravel\Fortify\Http\Controllers\AuthenticatedSessionController@destroy')
+            ->name('adminlogout');
         });
     });
 });
