@@ -15,12 +15,12 @@ class CreateContactsTable extends Migration
     {
         Schema::create('contacts', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('adress');
-            $table->string('zipcode');
-            $table->string('city');
-            $table->string('phone');
-            $table->string('email');
+            $table->string('name')->default('Nom du garage');
+            $table->string('adress')->default('Adresse');
+            $table->string('zipcode')->default('00000');
+            $table->string('city')->default('Ville');
+            $table->string('phone')->default('0600000000');
+            $table->string('email')->default('mail@domain.com');
             $table->timestamps();
         });
     }
