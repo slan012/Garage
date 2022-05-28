@@ -76,21 +76,48 @@ html, body, input, textarea {
   background-color: #222;
   color: #FFF;
 }
-.topbar .links ul {
+.topbar .links {
+  align-self: flex-start;
+  position: fixed;
+  right: 10px;
+}
+.topbar .links li {
+  text-align: center;
+  padding: 10px 0;
+}
+.topbar .links a {
+  text-decoration: none;
+  font-size: 1.3em;
+  color: #ccc;
+}
+.topbar .links a:hover {
+  color: #AAA;
+}
+
+#nav-links-list {
   display: none;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  padding: 80px 0 20px 0;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background-color: rgba(34, 34, 34, 0.9);
 }
 
 #btn-mobile-menu {
   display: block;
-  width: 40px;
-  height: 40px;
+  width: 60px;
+  height: 60px;
   background-color: #222;
   border: none;
   border-radius: 5px;
+  z-index: 20;
 }
 #btn-mobile-menu span {
   display: block;
-  width: 80%;
+  width: 50%;
   height: 2px;
   background-color: #FFF;
   margin: 7px auto;
@@ -712,18 +739,28 @@ html, body, input, textarea {
   .topbar {
     padding: 25px 45px;
   }
-  .topbar .links ul {
-    display: flex;
-    justify-content: space-between;
+  .topbar .links {
+    align-self: unset;
+    position: unset;
   }
-  .topbar .links ul a {
+
+  #nav-links-list {
+    position: unset;
+    display: flex;
+    width: auto;
+    height: auto;
+    justify-content: space-between;
+    padding: 0;
+  }
+  #nav-links-list a {
     color: inherit;
     text-decoration: none;
     transition: 0.2s;
     padding: 15px;
     letter-spacing: 0.7px;
+    font-size: inherit;
   }
-  .topbar .links ul a:hover {
+  #nav-links-list a:hover {
     color: #00a3e0;
   }
 
