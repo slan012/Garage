@@ -26,7 +26,7 @@
           </ul>
         </li>
         <li><a class="nav-link" href="#"><i class="fas fa-euro-sign"></i>Offres/Promotions</a></li>
-        @if (Auth::check()) 
+        @if (auth()->check()) 
           <li>
             <a class="nav-link" href="{{route('admin.adminlogout')}}"><i class="fas fa-power-off"></i> Deconnexion</a>
           </li>
