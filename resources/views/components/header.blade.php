@@ -6,12 +6,12 @@
         </a>
     </div>
     <div class="links">
-        <button class="btn-collapse">
+        <button id="btn-mobile-menu">
             <span></span>
             <span></span>
             <span></span>
         </button>
-        <ul>
+        <ul id="nav-links-list">
             <li><a href="{{route('history')}}">Notre histoire</a></li>
             <li><a href="{{route('services')}}">Nos services</a></li>
             <li><a href="{{route('ads')}}">Nos véhicules</a></li>

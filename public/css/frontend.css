@@ -80,7 +80,7 @@ html, body, input, textarea {
   display: none;
 }
 
-.btn-collapse {
+#btn-mobile-menu {
   display: block;
   width: 40px;
   height: 40px;
@@ -88,14 +88,14 @@ html, body, input, textarea {
   border: none;
   border-radius: 5px;
 }
-.btn-collapse span {
+#btn-mobile-menu span {
   display: block;
   width: 80%;
   height: 2px;
   background-color: #FFF;
   margin: 7px auto;
 }
-.btn-collapse:hover {
+#btn-mobile-menu:hover {
   background-color: #4d4d4d;
   cursor: pointer;
 }
@@ -727,7 +727,7 @@ html, body, input, textarea {
     color: #00a3e0;
   }
 
-  .btn-collapse {
+  #btn-mobile-menu {
     display: none;
   }
 
