@@ -3,7 +3,7 @@
     <img class="mx-auto d-block" src="{{$car->image('thumb')}}" alt="Photo de la voiture">
 @endif
 <div class="row">
-    <div class="col-sm-5 mr-auto">
+    <div class="col-sm-12 col-md-4 col-md-offset-4">
         {!! Form::model($car, [
             'route' => [
                 'admin.cars.' . $action . '', 
@@ -53,10 +53,13 @@
         <!-- Options -->
         <div class="form-group row">
             {!! Form::label('options_id[]', 'Options :', ['class' => 'col-sm-4 col-form-label']) !!}
-            {!! Form::select('options_id[]', $options, $car->options, ['class' => 'col-sm-8 form-control', 'required', 'multiple']) !!}
+            {!! Form::select('options_id[]', $options, $car->options, ['class' => 'col-sm-8 form-control', 'multiple']) !!}
         </div>
-    </div>
-    <div class="col-sm-5 ml-auto">
+        <!-- Description -->
+        <div class="form-group row">
+            {!! Form::label('description', 'Description :', ['class' => 'col-form-label', 'style' => 'font-weight: bold']) !!}
+            {!! Form::textarea('description', null, ['class' => 'form-control', 'required']) !!}
+        </div>
         <!-- Color -->
         <div class="form-group row">
             {!! Form::label('color', 'Couleur :', ['class' => 'col-sm-4 col-form-label']) !!}
@@ -85,18 +88,12 @@
         <!-- Registration -->
         <div class="form-group row">
             {!! Form::label('registration', 'Immatriculation :', ['class' => 'col-sm-4 col-form-label']) !!}
+            <P><em>(n'est past montrée aux utilisateurs)</em></P>
             {!! Form::text('registration', null, ['class' => 'col-sm-8 form-control', 'maxlength' => '7']) !!}
         </div>
-        
-    </div>
-</div>
-<div class="row">
-    <div class="col-sm-12">
-        <div class="form-group">
-            {!! Form::label('description', 'Description :', ['class' => 'col-form-label', 'style' => 'font-weight: bold']) !!}
-            {!! Form::textarea('description', null, ['class' => 'form-control', 'required']) !!}
+        <div class="form-group row">
+            {!! Form::submit('Valider', ['class' => 'btn btn-primary btn-block']) !!}
         </div>
+        {!! Form::close() !!}
     </div>
 </div>
-{!! Form::submit('Valider', ['class' => 'btn btn-primary']) !!}
-{!! Form::close() !!}

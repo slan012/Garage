@@ -1,11 +1,7 @@
 @extends('web.backend.layouts.app')
 
-@section('title')
-    <h1 class="text-center">Créer une annonce</h1>
-@endsection
+@section('title', 'Creation annonce')
 
 @section('main')
-    <div class="col-sm-10 mx-auto">
-        @include('cars.form', ['action' => 'store', 'car' => $car])
-    </div>
+  @include('web.backend.sections.cars.form', ['action' => 'store', 'car' => $car])
 @endsection

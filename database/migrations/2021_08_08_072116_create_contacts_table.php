@@ -1,8 +1,9 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 class CreateContactsTable extends Migration
 {
@@ -15,14 +16,25 @@ class CreateContactsTable extends Migration
     {
         Schema::create('contacts', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->default('Nom du garage');
-            $table->string('adress')->default('Adresse');
-            $table->string('zipcode')->default('00000');
-            $table->string('city')->default('Ville');
-            $table->string('phone')->default('0600000000');
-            $table->string('email')->default('mail@domain.com');
+            $table->string('name');
+            $table->string('adress');
+            $table->string('zipcode');
+            $table->string('city');
+            $table->string('phone');
+            $table->string('email');
             $table->timestamps();
         });
+
+        DB::table('contacts')->insert(
+            [
+                'name' => 'Nom du garage',
+                'adress' => 'Adresse',
+                'zipcode' => '00000',
+                'city' => 'Ville',
+                'phone' => '0606060606',
+                'email' => 'mail@domain.com'
+            ]
+        );
     }
 
     /**
