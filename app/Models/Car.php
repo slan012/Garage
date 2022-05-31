@@ -50,8 +50,12 @@ class Car extends Model
         parent::boot();
         static::deleting(function ($instance) {
             $dir = public_path() . $instance->getImageDir();
-            unlink($dir . $instance->id . '_thumb.jpg');
-            unlink($dir . $instance->id . '_large.jpg');
+            if (file_exists(public_path() . $instance->getImageDir() . $instance->id . '_thumb.jpg')) {
+                unlink($dir . $instance->id . '_thumb.jpg');
+            }
+            if (file_exists(public_path() . $instance->getImageDir() . $instance->id . '_large.jpg')) {
+                unlink($dir . $instance->id . '_large.jpg');
+            }
         });
     }
 
