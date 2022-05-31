@@ -3,7 +3,7 @@
 @section('title', 'Annonces')
 
 @section('main')
-    <div class="col-sm-10 mx-auto">
+    <div class="col-sm-12 col-md-10 col-md-offset-1">
         <div class="row">
             <div class="col-sm-6">
                 <p class="text-left">
