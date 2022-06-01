@@ -6,36 +6,11 @@
 
 @section('main')
     <div class="row">
-        <div class="col-sm-7">
+        <div class="col-sm-12 col-md-6 col-md-offset-3">
             @include('components.message')
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Date début</th>
-                        <th>Date fin</th>
-                        <th>Alerte visiteurs</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($holidays as $holiday)
-                        <tr>
-                            <td>{{$holiday->beginDate}}</td>
-                            <td>{{$holiday->endDate}}</td>
-                            <td>{{$holiday->validated ? 'Activée' : 'Désactivée'}}</td>
-                            <td>
-                                <a href="{{route('holidays.edit', $holiday)}}" class="btn btn-primary">Modifier</a>
-                                <a href="{{route('holidays.destroy', $holiday)}}" class="btn btn-danger" data-method="delete" data-confirm="Voulez vous vraiment supprimer cette période?">Supprimer</a>
-                            </td>
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
-        </div>
-        <div class="col-sm-4 shadow mx-auto">
             <h2>Ajouter une période</h2>
             {!! Form::open([
-                'route' => 'holidays.store',
+                'route' => 'admin.holidays.store',
                 'method' => 'POST',
                 ]) !!}
             <div class="form-group row align-items-center">
@@ -54,6 +29,30 @@
                 {!! Form::submit('Valider', ['class' => 'mt-3 btn btn-primary']) !!}
             </div>
             {!! Form::close() !!}
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Date début</th>
+                        <th>Date fin</th>
+                        <th>Alerte visiteurs</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($holidays as $holiday)
+                        <tr>
+                            <td>{{$holiday->beginDate}}</td>
+                            <td>{{$holiday->endDate}}</td>
+                            <td>{{$holiday->validated ? 'Activée' : 'Désactivée'}}</td>
+                            <td>
+                                <a href="{{route('admin.holidays.edit', $holiday)}}" class="btn btn-primary">Modifier</a>
+                                <a href="{{route('admin.holidays.destroy', $holiday)}}" class="btn btn-danger" data-method="delete" data-confirm="Voulez vous vraiment supprimer cette période?">Supprimer</a>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
         </div>
+        
     </div>
 @endsection

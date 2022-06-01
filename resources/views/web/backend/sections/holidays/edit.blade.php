@@ -10,7 +10,7 @@
         {!! Form::model($holiday, 
             [
                 'route' => [
-                    'holidays.update',
+                    'admin.holidays.update',
                     $holiday,
             ],
                 'method' => 'PUT',

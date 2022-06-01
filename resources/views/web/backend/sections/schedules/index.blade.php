@@ -9,7 +9,7 @@
 <div class="row">
     <div class="col-sm-8">
         <p class="text-right">
-            <a class="btn btn-info" href="{{route('schedules.edit')}}">Modifier les horaires</a>
+            <a class="btn btn-info" href="{{route('admin.schedules.edit')}}">Modifier les horaires</a>
         </p>
         @include('components.message')
         <table class="text-center table table-striped table-bordered">

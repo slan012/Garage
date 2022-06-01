@@ -65,7 +65,7 @@ class ScheduleController extends Controller
 
             Schedule::where('id', $day)->update($eventArray);
         }
-        return redirect()->route('web.backend.sections.schedules.index')->with('success', 'Les horaires ont bien été mis à jour.');
+        return redirect()->route('admin.schedules.index')->with('success', 'Les horaires ont bien été mis à jour.');
     }
 
 }

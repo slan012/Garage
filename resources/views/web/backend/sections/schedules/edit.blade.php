@@ -26,7 +26,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                    {!! Form::open(['route' => 'schedules.update', 'method' => 'post']) !!}
+                    {!! Form::open(['route' => 'admin.schedules.update', 'method' => 'post']) !!}
                     @foreach ($schedules as $schedule)
                         <tr>
                             <td scope="row">{{$schedule->day}}</td>

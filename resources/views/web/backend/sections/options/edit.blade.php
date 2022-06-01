@@ -8,7 +8,7 @@
     <div class="col-sm-10 mx-auto">
         {!! Form::model($option,
             [
-                'route' => ['options.update', $option],
+                'route' => ['admin.options.update', $option],
                 'method' => 'put',
             ]
         )!!}

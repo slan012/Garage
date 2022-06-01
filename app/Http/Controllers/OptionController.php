@@ -20,17 +20,6 @@ class OptionController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        $option = new Option();
-        return view('web.backend.sections.options.create', ['option' => $option]);
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -45,7 +34,7 @@ class OptionController extends Controller
         );
         $data = $request->only('name');
         Option::create($data);
-        return redirect(route('web.backend.sections.options.index'))->with('success', 'L\'option a bien été ajoutée');
+        return redirect(route('admin.options.index'))->with('success', 'L\'option a bien été ajoutée');
     }
 
     /**
@@ -82,7 +71,7 @@ class OptionController extends Controller
     {
         $data = $request->only('name');
         $option->update($data);
-        return redirect(route('web.backend.sections.options.index'))->with('success', 'L\'option a été mise à jour');
+        return redirect(route('admin.options.index'))->with('success', 'L\'option a été mise à jour');
     }
 
     /**
@@ -94,6 +83,6 @@ class OptionController extends Controller
     public function destroy(Option $option)
     {
         $option->delete();
-        return redirect(route('web.backend.sections.options.index'))->with('success', 'L\'option a été supprimée');
+        return redirect(route('admin.options.index'))->with('success', 'L\'option a été supprimée');
     }
 }

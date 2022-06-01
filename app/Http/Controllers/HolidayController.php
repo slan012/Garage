@@ -16,7 +16,7 @@ class HolidayController extends Controller
     public function index()
     {
         $holidays = Holiday::all();
-        return view('admin.holidays.index', compact('holidays'));
+        return view('web.backend.sections.holidays.index', compact('holidays'));
     }
 
     /**
@@ -52,7 +52,7 @@ class HolidayController extends Controller
     public function edit(Holiday $holiday)
     {
         $holiday = Holiday::findOrFail($holiday->id);
-        return view('admin.holidays.edit', compact('holiday'));
+        return view('web.backend.sections.holidays.edit', compact('holiday'));
     }
 
     /**
@@ -67,7 +67,7 @@ class HolidayController extends Controller
         $data = $request->except('_token', '_method');
         $data['validated'] = isset($data['validated']) ? true : false;
         $holiday->update($data);
-        return redirect(route('web.backend.sections.holidays.index'))->with('success', 'La période de fermeture a été mise à jour');
+        return redirect(route('admin.holidays.index'))->with('success', 'La période de fermeture a été mise à jour');
     }
 
     /**
@@ -79,6 +79,6 @@ class HolidayController extends Controller
     public function destroy(Holiday $holiday)
     {
         $holiday->delete();
-        return redirect(route('web.backend.sections.holidays.index'))->with('success', 'La période de fermeture a été supprimée');
+        return redirect(route('admin.holidays.index'))->with('success', 'La période de fermeture a été supprimée');
     }
 }

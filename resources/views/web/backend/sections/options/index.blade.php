@@ -23,8 +23,8 @@
                         <td>{{$option->id}}</td>
                         <td>{{$option->name}}</td>
                         <td>
-                            <a href="{{route('options.edit', $option)}}" class="btn btn-primary">Modifier</a>
-                            <a href="{{route('options.destroy', $option)}}" class="btn btn-danger" data-method="delete" data-confirm="Voulez vous vraiment supprimer cette option?">Supprimer</a>
+                            <a href="{{route('admin.options.edit', $option)}}" class="btn btn-primary">Modifier</a>
+                            <a href="{{route('admin.options.destroy', $option)}}" class="btn btn-danger" data-method="delete" data-confirm="Voulez vous vraiment supprimer cette option?">Supprimer</a>
                         </td>
                     </tr>
                 @endforeach
@@ -35,7 +35,7 @@
         <h2>Ajouter une option à la liste</h2>
         {!! Form::open(
             [
-                'route' => 'options.store',
+                'route' => 'admin.options.store',
                 'method' => 'post',
                 ]
                 )
