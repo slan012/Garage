@@ -92,7 +92,7 @@ class Footer extends Component
 
         } catch (Exception $e) {
             return [
-                'dataBaseError' => 'Erreur base de données'
+                'dataBaseError' => "Oups! Une erreur est survenue... Vous vouvez nous contacter au : 05 65 46 93 52"
             ];
         }
 
