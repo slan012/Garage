@@ -7,12 +7,12 @@
         <div class="row">
             <div class="col-sm-6">
                 <p class="text-left">
-                    <a class="btn btn-primary" href="{{route('admin.options.index')}}">Gérer les options des véhicules</a>
+                    <a class="btn btn-info" href="{{route('admin.cars.create')}}">Ajouter une annonce</a>
                 </p>
             </div>
             <div class="col-sm-6">
                 <p class="text-right">
-                    <a class="btn btn-info" href="{{route('admin.cars.create')}}">Ajouter une annonce</a>
+                    <a class="btn btn-primary" href="{{route('admin.options.index')}}">Gérer les options des véhicules</a>
                 </p>
             </div>
         </div>
@@ -42,8 +42,6 @@
                         <td><strong>{{$car->price}}€</strong></td>
                         <td>{{$car->creation_date}}</td>
                         <td>
-                            
-                            <a href="{{route('admin.ads.show', $car->id)}}" class="btn btn-secondary">Voir</a>
                             <a href="{{route('admin.cars.edit', $car)}}" class="btn btn-primary">Modifier</a>
                             <a href="{{route('admin.cars.destroy', $car)}}" class="btn btn-danger" data-method="delete" data-confirm="Voulez vous vraiment supprimer cette voiture?">Supprimer</a>
                         </td>

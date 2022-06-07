@@ -61,7 +61,8 @@ class CarsController extends Controller
     {
         $car = Car::findOrFail($car->id);
         $options = Option::pluck('name', 'id');
-        return view('web.backend.sections.cars.edit', compact('car', 'options'));
+        $title = "Modification de l'annonce";
+        return view('web.backend.sections.cars.edit', compact('car', 'options', 'title'));
     }
 
     /**
