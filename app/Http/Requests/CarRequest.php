@@ -24,7 +24,8 @@ class CarRequest extends FormRequest
     public function rules()
     {
         $rules =  [
-            'image' => 'image|max:5000',
+            'image' => 'required',
+            'image.*' => 'image|max:5000',
             'brand' => 'required|string|alpha_num',
             'model' => 'required|string|alpha_num',
             'registration' => 'required|string|alpha_num|size:7',

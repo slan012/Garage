@@ -1,7 +1,11 @@
 @extends('web.backend.layouts.app')
 
-@section('title', 'Creation annonce')
+@section('title', $title)
 
 @section('main')
-  @include('web.backend.sections.cars.form', ['action' => 'store', 'car' => $car])
+@livewire('upload-photos', [
+  'title' => $title,
+   'car' => $car,
+   'options' => $options,
+   'action' => 'store'])
 @endsection

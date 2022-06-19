@@ -30,6 +30,8 @@ class Car extends Model
         
     ];
 
+    public $carPhotos = [];
+
     /**
      * Get all of the options for the Car
      *
@@ -38,6 +40,16 @@ class Car extends Model
     public function options()
     {
         return $this->belongsToMany(Option::class);
+    }
+
+    /**
+     * Get all of the car photos for the Car
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function photos()
+    {
+        return $this->hasMany(Photo::class);
     }
 
     public function getImageDir()
@@ -59,21 +71,23 @@ class Car extends Model
         });
     }
 
-    public function setImageAttribute($image)
+    public function setImageAttribute($images)
     {
-        if (is_object($image) && $image->isValid()) {
-            static::saved(function ($instance) use ($image) {
-                $dir = public_path() . $this->getImageDir();
-                Image::make($image)->fit(1080, 768)->save($dir . '/' . $instance->id . '_large.jpg', 60);
-                Image::make($image)->fit(250, 150)->save($dir . '/' . $instance->id . '_thumb.jpg', 60);
-            });
+        foreach ($images as $key => $image) {
+            if (is_object($image) && $image->isValid()) {
+                static::saved(function ($instance) use ($key, $image) {
+                    $dir = public_path() . $this->getImageDir();
+                    Image::make($image)->fit(1080, 768)->save($dir . '/' . $instance->id . '_' . $key . '_large.jpg', 60);
+                    Image::make($image)->fit(250, 150)->save($dir . '/' . $instance->id . '_' . $key . '_thumb.jpg', 60);
+                });
+            }
         };
     }
 
-    public function image($size)
+    public function images($size)
     {
-        if (file_exists(public_path() . $this->getImageDir() . $this->id . '_thumb.jpg')) {
-            return $this->getImageDir() . $this->id . '_' . $size . '.jpg';
+        if (file_exists(public_path() . $this->getImageDir() . $this->id . '_*' . '_' . $size . '.jpg')) {
+            array_push($this->carPhotos, $this->getImageDir() . $this->id . '_*' . '_' . $size . '.jpg');
         }
         return false;
     }
@@ -82,4 +96,5 @@ class Car extends Model
     {
         return date_format($this->created_at, 'd-m-Y à h:i');
     }
+
 }

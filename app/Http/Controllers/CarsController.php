@@ -6,6 +6,7 @@ use App\Models\Car;
 use App\Models\Option;
 use Illuminate\Http\Request;
 use App\Http\Requests\CarRequest;
+use App\Models\CarPhotos;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Support\Facades\Auth;
 use function PHPUnit\Framework\returnSelf;
@@ -32,7 +33,8 @@ class CarsController extends Controller
     {
         $car = new Car();
         $options = Option::pluck('name', 'id');
-        return view('web.backend.sections.cars.create', compact('car', 'options'));
+        $title = "Création d'annonce";
+        return view('web.backend.sections.cars.create', compact('car', 'options', 'title'));
     }
 
     /**
