@@ -3,13 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Car;
+use App\Models\Photo;
 use App\Models\Option;
-use Illuminate\Http\Request;
 use App\Http\Requests\CarRequest;
-use App\Models\CarPhotos;
 use Illuminate\Contracts\Auth\Guard;
-use Illuminate\Support\Facades\Auth;
-use function PHPUnit\Framework\returnSelf;
 
 class CarsController extends Controller
 {
@@ -21,6 +18,7 @@ class CarsController extends Controller
     public function index()
     {
         $cars = Car::select('id', 'brand', 'model', 'mileage', 'created_at', 'price')->paginate(10);
+        $cars->load('photos');
         return view('web.backend.sections.cars.index', compact('cars'));
     }
 

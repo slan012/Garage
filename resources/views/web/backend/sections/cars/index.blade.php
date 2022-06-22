@@ -3,6 +3,7 @@
 @section('title', 'Annonces')
 
 @section('main')
+
     <div class="col-sm-12 col-md-10 col-md-offset-1">
         <div class="row">
             <div class="col-sm-6">
@@ -33,8 +34,7 @@
             <tbody>
                 @foreach ($cars as $car)
                     <tr>
-                        {{-- {{dd($car->image)}} --}}
-                        <td><a href="{{route('admin.cars.edit', $car)}}"><img src="{{$car->image('thumb')}}" width="100" alt="Photo de la voiture"></a></td>
+                        <td><a href="{{route('admin.cars.edit', $car)}}"><img src={{asset('/img/cars') . '/' . $car->photos[0]->file_path}} width="100" alt="Photo de la voiture"></a></td>
                         <td>P{{$car->id}}</td>
                         <td>{{$car->brand}}</td>
                         <td>{{$car->model}}</td>

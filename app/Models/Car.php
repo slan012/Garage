@@ -30,9 +30,8 @@ class Car extends Model
         
     ];
 
-    public $carPhotos = [];
 
-    /**
+        /**
      * Get all of the options for the Car
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
@@ -52,6 +51,11 @@ class Car extends Model
         return $this->hasMany(Photo::class);
     }
 
+    /**
+     * Get the directory which contains cars photos
+     *
+     * @return string
+     */
     public function getImageDir()
     {
         return '/img/cars/';
@@ -77,19 +81,15 @@ class Car extends Model
             if (is_object($image) && $image->isValid()) {
                 static::saved(function ($instance) use ($key, $image) {
                     $dir = public_path() . $this->getImageDir();
-                    Image::make($image)->fit(1080, 768)->save($dir . '/' . $instance->id . '_' . $key . '_large.jpg', 60);
-                    Image::make($image)->fit(250, 150)->save($dir . '/' . $instance->id . '_' . $key . '_thumb.jpg', 60);
+                    $file_name = $image->hashName();
+                    Image::make($image)->fit(1080, 768)->save($dir . '/' . $file_name, 60);
+                    Photo::create([
+                        'file_path' => $file_name,
+                        'car_id' => $instance->id,
+                    ]);
                 });
             }
         };
-    }
-
-    public function images($size)
-    {
-        if (file_exists(public_path() . $this->getImageDir() . $this->id . '_*' . '_' . $size . '.jpg')) {
-            array_push($this->carPhotos, $this->getImageDir() . $this->id . '_*' . '_' . $size . '.jpg');
-        }
-        return false;
     }
 
     public function getCreationDateAttribute()
