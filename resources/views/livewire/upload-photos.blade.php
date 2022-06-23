@@ -68,10 +68,11 @@
             null, ['class' => 'col-sm-8 form-control', 'required']) !!}
         </div>
         <!-- Options -->
-        <div class="form-group row">
-            {!! Form::label('options_id[]', 'Options :', ['class' => 'col-sm-4 col-form-label']) !!}
-            {!! Form::select('options_id[]', $options, $car->options, ['class' => 'col-sm-8 form-control', 'multiple']) !!}
-        </div>
+        {{-- <div class="form-group row">
+            {!! Form::label('options[]', 'Options :', ['class' => 'col-sm-4 col-form-label']) !!}
+            {!! Form::select('options_id', $options, $car->options, ['class' => 'col-sm-8 form-control', 'multiple']) !!}
+        </div> --}}
+        @livewire('options-table', ['car' => $car])
         <!-- Description -->
         <div class="form-group row">
             {!! Form::label('description', 'Description :', ['class' => 'col-form-label', 'style' => 'font-weight: bold']) !!}
