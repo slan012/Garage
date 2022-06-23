@@ -24,8 +24,7 @@ class CarRequest extends FormRequest
     public function rules()
     {
         $rules =  [
-            'image' => 'required',
-            'image.*' => 'image|max:5000',
+            'photos' => '',
             'brand' => 'required|string|alpha_num',
             'model' => 'required|string|alpha_num',
             'registration' => 'required|string|alpha_num|size:7',
@@ -41,7 +40,7 @@ class CarRequest extends FormRequest
         ];
         
         if ($this->method() == 'POST') {
-            $rules['image'] .= '|required';
+            $rules['photos'] .= '|required';
         }
 
         return $rules;

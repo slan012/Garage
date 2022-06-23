@@ -12,7 +12,7 @@ class Car extends Model
     use HasFactory;
 
     public $fillable = [
-        'image',
+        'photos',
         'brand',
         'model',
         'registration',
@@ -75,14 +75,15 @@ class Car extends Model
         });
     }
 
-    public function setImageAttribute($images)
-    {
-        foreach ($images as $key => $image) {
-            if (is_object($image) && $image->isValid()) {
-                static::saved(function ($instance) use ($key, $image) {
+    public function setPhotosAttribute($photos)
+    {   
+        Photo::where('car_id', $this->id)->delete();
+        foreach ($photos as $key => $photo) {
+            if (is_object($photo) && $photo->isValid()) {
+                static::saved(function ($instance) use ($key, $photo) {
                     $dir = public_path() . $this->getImageDir();
-                    $file_name = $image->hashName();
-                    Image::make($image)->fit(1080, 768)->save($dir . '/' . $file_name, 60);
+                    $file_name = $photo->hashName();
+                    Image::make($photo)->fit(1080, 768)->save($dir . '/' . $file_name, 60);
                     Photo::create([
                         'file_path' => $file_name,
                         'car_id' => $instance->id,
