@@ -27,9 +27,9 @@
             {!! Form::label('photos', 'Photo :', ['class' => 'col-sm-4 col-form-label']) !!}
             {!! Form::file('photos[]', [
                 'class' => 'col-sm-8 form-control',
-                 'wire:model' => 'photos',
-                  'multiple' => 'true',
-                  'wire:loading.attr' => 'disabled']) !!}
+                'wire:model' => 'photos',
+                'multiple' => 'true',
+                'wire:loading.attr' => 'disabled']) !!}
             <div wire:loading wire:target="photos">
                 <p><strong>Chargement...</strong></p>
             </div>
