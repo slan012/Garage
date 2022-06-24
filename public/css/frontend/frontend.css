@@ -173,7 +173,7 @@ html, body, input, textarea {
   text-align: center;
   padding: 30px 0;
   color: #FFF;
-  background: linear-gradient(#222222, rgba(34, 34, 34, 0.85), #222222), url("../img/assets/jaguar_1920.jpg") center top/cover no-repeat;
+  background: linear-gradient(#222222, rgba(34, 34, 34, 0.85), #222222), url("../../img/assets/jaguar_1920.jpg") center top/cover no-repeat;
 }
 .banner h1 {
   font-size: 1.2rem;
@@ -838,7 +838,7 @@ html, body, input, textarea {
   }
 
   .hotrod {
-    background: linear-gradient(#222222, rgba(34, 34, 34, 0.9), #222222), url(../img/assets/hotrod_1920.jpg) center center/cover no-repeat;
+    background: linear-gradient(#222222, rgba(34, 34, 34, 0.9), #222222), url(../../img/assets/hotrod_1920.jpg) center center/cover no-repeat;
   }
 
   .container-services {
