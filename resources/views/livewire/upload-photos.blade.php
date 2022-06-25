@@ -28,18 +28,19 @@
   
   <!-- Photo -->
   <div class="block mt-2">
-    {!! Form::label('photos', 'Photo :', ['class' => 'block text-base ']) !!}
+    {!! Form::label('photos', 'Photos :', ['class' => 'block text-base ']) !!}
     {!! Form::file('photos[]', [
     'class' => '
       block 
       w-full
       text-slate-500
-      file:rounded-full file:mr-2 file:bg-sky-600 file:text-white file:py-2 file:px-4 ',
+      file:rounded-full file:mr-2 file:bg-sky-600 file:text-white file:py-2 file:px-4 
+      file:disabled:bg-gray-500',
     'wire:model' => 'photos',
     'multiple' => 'true',
     'wire:loading.attr' => 'disabled']) !!}
     <div wire:loading wire:target="photos">
-      <p><strong>Chargement...</strong></p>
+      <p class="block text-center text-lg w-full mx-auto">Chargement...</p>
     </div>
     @error('photo') <span class="error">{{ $message }}</span> @enderror
   </div>
