@@ -16,7 +16,7 @@
   @endif
 
   <!-- Begin form-->  
-  {!! Form::model($car, [
+  {!! Form::open([
     'route' => [
       'admin.cars.' . $action . '',
        $car->id,
@@ -39,16 +39,19 @@
     'wire:model' => 'photos',
     'multiple' => 'true',
     'wire:loading.attr' => 'disabled']) !!}
+    
     <div wire:loading wire:target="photos">
       <p class="block text-center text-lg w-full mx-auto">Chargement...</p>
     </div>
+    
     @error('photo') <span class="error">{{ $message }}</span> @enderror
+  
   </div>
   
   <!-- Brand -->
   <div class="block mt-2">
     {!! Form::label('brand', 'Marque :', ['class' => 'block text-base ']) !!}
-    {!! Form::text('brand', null, [
+    {!! Form::text('brand', $car->brand, [
       'class' => '
         block 
         w-full 
@@ -60,7 +63,7 @@
   <!-- Model -->
   <div class="block mt-2">
     {!! Form::label('model', 'Modèle :', ['class' => 'block text-base ']) !!}
-    {!! Form::text('model', null, [
+    {!! Form::text('model', $car->model, [
       'class' => '
         block 
         w-full 
@@ -72,7 +75,7 @@
   <!-- Year -->
   <div class="block mt-2">
     {!! Form::label('year', 'Année :', ['class' => 'block text-base ']) !!}
-    {!! Form::number('year', null, [
+    {!! Form::number('year', $car->year, [
       'class' => '
         block 
         w-full 
@@ -84,7 +87,7 @@
   <!-- Mileage -->
   <div class="block mt-2">
     {!! Form::label('mileage', 'Kilomètrage :', ['class' => 'block text-base ']) !!}
-    {!! Form::number('mileage', null, [
+    {!! Form::number('mileage', $car->mileage, [
       'class' => '
         block 
         w-full 
@@ -103,7 +106,7 @@
     'Electrique' => 'Electrique',
     'GPL' => 'GPL'
     ],
-    null, [
+    $car->energy, [
       'class' => '
         block 
         w-full 
@@ -118,7 +121,7 @@
   <!-- Description -->
   <div class="block mt-2">
     {!! Form::label('description', 'Description :', ['class' => 'block text-base ', 'style' => 'font-weight: bold']) !!}
-    {!! Form::textarea('description', null, [
+    {!! Form::textarea('description', $car->description, [
       'class' => '
         block 
         w-full 
@@ -130,7 +133,7 @@
   <!-- Color -->
   <div class="block mt-2">
     {!! Form::label('color', 'Couleur :', ['class' => 'block text-base ']) !!}
-    {!! Form::text('color', null, [
+    {!! Form::text('color', $car->color, [
       'class' => '
         block 
         w-full 
@@ -142,7 +145,7 @@
   <!-- Power -->
   <div class="block mt-2">
     {!! Form::label('power', 'Puissance :', ['class' => 'block text-base ']) !!}
-    {!! Form::number('power', null, [
+    {!! Form::number('power', $car->power, [
       'class' => '
         block 
         w-full 
@@ -154,7 +157,7 @@
   <!-- Engine -->
   <div class="block mt-2">
     {!! Form::label('engine', 'Moteur :', ['class' => 'block text-base ']) !!}
-    {!! Form::text('engine', null, [
+    {!! Form::text('engine', $car->engine, [
       'class' => '
         block 
         w-full 
@@ -166,7 +169,7 @@
   <!-- State -->
   <div class="block mt-2">
     {!! Form::label('state', 'Etat :', ['class' => 'block text-base ']) !!}
-    {!! Form::select('state', ['N' => 'Neuf', 'O' => 'Occasion'], null, [
+    {!! Form::select('state', ['N' => 'Neuf', 'O' => 'Occasion'], $car->state, [
       'class' => '
         block 
         w-full 
@@ -179,7 +182,7 @@
   <!-- Price -->
   <div class="block mt-2">
     {!! Form::label('price', 'Prix (€):', ['class' => 'block text-base ']) !!}
-    {!! Form::number('price', null, [
+    {!! Form::number('price', $car->price, [
       'class' => '
         block 
         w-full 
@@ -192,7 +195,7 @@
   <div class="block mt-2">
     {!! Form::label('registration', 'Immatriculation :', ['class' => 'block text-base ']) !!}
     <P><em>(n'est past montrée aux utilisateurs)</em></P>
-    {!! Form::text('registration', null, [
+    {!! Form::text('registration', $car->registration, [
       'class' => '
         block 
         w-full 
@@ -210,7 +213,6 @@
       bg-sky-500 
       rounded-xl py-2
       hover:bg-sky-600 hover:cursor-pointer',
-    'wire:click' => 'save',
     ]) !!}
   </div>
 

@@ -43,6 +43,7 @@ class CarsController extends Controller
      */
     public function store(CarRequest $request, Guard $auth)
     {
+        
         $data = $request->except('options_id');
         $data['user_id'] = $auth->user()->id;
         $data['registration'] = strtoupper($data['registration']);
