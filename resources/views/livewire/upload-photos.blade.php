@@ -5,15 +5,18 @@
   @include('components.message')
 
   <!-- Photos -->
-  @if ($photos)
+  <div class="md:flex md:justify-start md:flex-wrap md:gap-2">
+    @if ($photos)
     @foreach ($photos as $photo)
-      <img class=" my-2 mx-auto" src="{{$photo->temporaryUrl()}}" alt="Photo de la voiture">
+      <img class="my-2 mx-auto md:block md:max-w-sm " src="{{$photo->temporaryUrl()}}" alt="Photo de la voiture">
     @endforeach
   @elseif ($car->photos)
     @foreach ($car->photos as $photo)
-      <img class=" my-2 mx-auto" src="{{asset('/img/cars')}}/{{$photo->file_path}}" alt="Photo de la voiture">
+      <img class="my-2 mx-auto md:block md:max-w-sm" src="{{asset('/img/cars')}}/{{$photo->file_path}}" alt="Photo de la voiture">
     @endforeach
   @endif
+  </div>
+  
 
   <!-- Begin form-->  
   {!! Form::open([

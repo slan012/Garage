@@ -4,7 +4,9 @@
 
 @section('main')
 
+
     <div class="banner">
+        <strong>Database Connected: </strong>
         <img src="{{asset('img/assets/img_banner3.png')}}" alt="">
         <div class="container-banner">
             <p>Situé à Sébazac Concourès près de Rodez en Aveyron, le garage Jeantet, 

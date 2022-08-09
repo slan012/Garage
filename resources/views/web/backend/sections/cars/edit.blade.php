@@ -7,5 +7,5 @@
         'title' => $title,
          'car' => $car,
          'options' => $options,
-         'action' => 'update'])
+         'action' => 'update',])
 @endsection

@@ -428,8 +428,13 @@ html, body, input, textarea {
 .creation {
   font-size: 0.9rem;
   color: #999;
-  text-align: center;
+  text-align: right;
   padding: 10px 20px;
+}
+
+.creation i {
+  display: inline-block;
+  margin: 0 5px;
 }
 .creation a {
   text-decoration: none;

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Car;
-use App\Models\Photo;
 use App\Models\Option;
 use App\Http\Requests\CarRequest;
 use Illuminate\Contracts\Auth\Guard;
@@ -17,7 +16,7 @@ class CarsController extends Controller
      */
     public function index()
     {
-        $cars = Car::select('id', 'brand', 'model', 'mileage', 'created_at', 'price')->paginate(10);
+        $cars = Car::select('id', 'brand', 'model', 'mileage', 'energy', 'created_at', 'price')->paginate(10);
         $cars->load('photos');
         return view('web.backend.sections.cars.index', compact('cars'));
     }
@@ -43,13 +42,12 @@ class CarsController extends Controller
      */
     public function store(CarRequest $request, Guard $auth)
     {
-        
         $data = $request->except('options_id');
         $data['user_id'] = $auth->user()->id;
         $data['registration'] = strtoupper($data['registration']);
         $car = Car::create($data);
         $car->options()->sync($request->get('options_id'));
-        return redirect(route('admin.cars.index'))->with('success', 'La voiture a bien été enregistrée');
+        return redirect(route('admin.cars.index'))->with('success', 'Le véhicule a bien été enregistré');
     }
 
     /**
@@ -91,6 +89,6 @@ class CarsController extends Controller
     {
         $car = Car::findOrFail($car->id);
         $car->delete();
-        return redirect()->back()->with('success', 'La voiture a bien été supprimée');
+        return redirect()->back()->with('success', 'Le véhicule a bien été supprimé');
     }
 }

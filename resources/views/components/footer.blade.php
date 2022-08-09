@@ -58,5 +58,5 @@
     </div>
 </div>
 <div class="creation">
-    <p>Réalisation : <a href="mailto:e.larroumets@hotmail.fr">Etienne LARROUMETS</a></p>
+    <p>Réalisé avec <i class="fas fa-wrench"></i> par <a href="mailto:e.larroumets@hotmail.fr">Etienne LARROUMETS</a></p>
 </div>

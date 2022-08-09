@@ -15,15 +15,8 @@ class UploadPhotos extends Component
     public $options;
     public $action;
     
-    public function updatedPhotos()
+    public function render()
     {
-        $this->validate([
-            'photos.*' => 'image|max:5000',
-        ]);
-    }
-
-    public function save()
-    {
-        //...
+        return view('livewire.upload-photos');
     }
 }

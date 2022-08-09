@@ -5,7 +5,7 @@
 @section('main')
 @livewire('upload-photos', [
   'title' => $title,
-   'car' => $car,
-   'options' => $options,
-   'action' => 'store'])
+  'car' => $car,
+  'options' => $options,
+  'action' => 'store'],)
 @endsection
