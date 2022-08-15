@@ -13,7 +13,7 @@
   </div>
 
   {{-- Validation messages --}}
-  <div class="px-3">
+  <div class="px-3 w-4/5 mx-auto">
     @include('components.message')
   </div>
     
@@ -40,25 +40,25 @@
   </div>
 
   {{-- Desktop cars list --}}
-  <table class="hidden md:block min-w-full mt-4 text-center">
-    <thead class="">
+  <table class="hidden md:table w-4/5 mx-auto mt-4 text-center">
+    <thead class="mx-auto">
       <tr>
-        <th>Aperçu</th>
-        <th>Réf. annonce</th>
-        <th>Marque</th>
-        <th>Modèle</th>
-        <th>Kilométrage</th>
-        <th>Prix</th>
-        <th>Date création</th>
-        <th>Action</th>
+        <th class="w-1/6">Aperçu</th>
+        <th class="w-1/10">Réf. annonce</th>
+        <th class="w-1/10">Marque</th>
+        <th class="w-1/10">Modèle</th>
+        <th class="w-1/10">Kilométrage</th>
+        <th class="w-1/10">Prix</th>
+        <th class="w-1/10">Date création</th>
+        <th class="w-1/6">Action</th>
       </tr>
     </thead>
-    <tbody class="">
+    <tbody class="mx-auto">
       @foreach ($cars as $car)
-      <tr class="even:bg-white odd:bg-gray-200">
-        <td><a href="{{route('admin.cars.edit', $car)}}"><img src={{asset('/img/cars') . '/' .
-              $car->photos[0]->file_path}} width="100" alt="Photo de la voiture"></a></td>
-        <td>P{{$car->id}}</td>
+      <tr class="even:bg-zinc-300 odd:bg-gray-200">
+        <td><a  href="{{route('admin.cars.edit', $car)}}"><img class="inline-block mx-auto w-36 my-2" src={{asset('/img/cars') . '/' .
+              $car->photos[0]->file_path}} alt="Photo de la voiture"></a></td>
+        <td>P{{$car->id}}</td> {{--Reference annonce--}}
         <td>{{$car->brand}}</td>
         <td>{{$car->model}}</td>
         <td>{{$car->mileage}}</td>

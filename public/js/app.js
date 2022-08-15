@@ -20,7 +20,6 @@ $('#add-option-button').click(function (e) {
 if ($('#mobile-button').is(':visible')) {
   // Mobile menu
   $('.dropdown-toggle').click(function (e) { 
-    // e.preventDefault();
     $(this).siblings().find('.dropdown-menu').hide();
     if ($(this).find('.dropdown-menu').is(':visible')) {
       $(this).find('.dropdown-menu').hide();

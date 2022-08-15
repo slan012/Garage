@@ -42,8 +42,7 @@
         </ul>
       </div>
       
-      
-      <a class="py-3 px-2 text-gray-300 hover:bg-gray-700 hover:text-white rounded-md text-md font-medium" href="#"><i class="fas fa-euro-sign"></i> Offres/Promotions</a>
+      {{-- <a class="py-3 px-2 text-gray-300 hover:bg-gray-700 hover:text-white rounded-md text-md font-medium" href="#"><i class="fas fa-euro-sign"></i> Offres/Promotions</a> --}}
       
       @if (auth()->check())
         <a class="py-3 px-2 text-gray-300 hover:bg-gray-700 hover:text-white rounded-md text-md font-medium" href="{{route('admin.adminlogout')}}"><i class="fas fa-power-off"></i> Deconnexion</a>
