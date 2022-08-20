@@ -33,17 +33,6 @@ class HolidayController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Holiday  $holiday
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Holiday $holiday)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Holiday  $holiday

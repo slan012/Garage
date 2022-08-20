@@ -50,3 +50,13 @@ $('#mobile-button').click(function (e) {
     return text === 'Menu' ? 'Fermer' : 'Menu';
   });
 });
+
+//Holidays alert
+$('.holidays-alert').each(function() {
+  console.log($(this).find('.holidays-alert-value').prop("checked"));
+  if($(this).find('.holidays-alert-value').prop("checked")) {
+   $(this).addClass('bg-green-300');
+  } else {
+    $(this).addClass('bg-pink-300');
+  }
+})

@@ -37,7 +37,7 @@
           {!! Form::submit('Mettre à jour', ['class' => 'my-1 w-32 mx-auto block md:inline-block py-2 px-2 bg-sky-500 rounded-md text-white hover:bg-sky-600 cursor-pointer']) !!}
           {!! Form::close() !!}
           <a href="{{route('admin.options.destroy', $option)}}"
-            class="my-1 w-32 mx-auto block md:inline-block py-2 px-2 bg-rose-600 rounded-md text-white hover:bg-sky-600 cursor-pointer" data-method="delete"
+            class="my-1 w-32 mx-auto block md:inline-block py-2 px-2 bg-rose-600 rounded-md text-white hover:bg-rose-700 cursor-pointer" data-method="delete"
             data-confirm="Voulez vous vraiment supprimer cette option?">Supprimer</a>
         </td>
       </tr>
